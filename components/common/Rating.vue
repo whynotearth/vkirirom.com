@@ -33,10 +33,9 @@ export default {
   .starWrapper {
     width: 60px;
     height: 15px;
+    margin-right: 3px;
     .starImg {
-      width: 35px;
       height: 15px;
-      // position: relative;
       background-image: url('../../assets/img/stars-filled.png');
     }
   }

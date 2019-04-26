@@ -2,8 +2,17 @@
   <v-app class="pa-0">
     <v-container fluid class="pa-0">
       <v-layout row flex class="pa-0 mx-0">
-        <v-flex xs12 sm12 md6 class="pa-0 overflow-hidden">
+        <v-flex xs12 sm12 md6 class="pa-0 overflow-hidden hidden-sm-and-down">
           <v-img class="image" :src="FrontendImg" aspect-ratio="1.7"></v-img>
+        </v-flex>
+        <v-flex xs12 class="hidden-md-and-up">
+          <v-carousel hide-controls>
+            <v-carousel-item
+              v-for="(item,i) in images"
+              :key="i"
+              :src="item"
+            ></v-carousel-item>
+          </v-carousel>
         </v-flex>
         <v-flex xs12 sm6 class="pa-0 ma-0 overflow-hidden hidden-sm-and-down">
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
@@ -27,7 +36,7 @@
     </v-container>
     <v-container class="listingContainer">
       <v-layout row flex>
-        <v-flex sm12 md8>
+        <v-flex sm12 md8 class="mb-5 pb-5">
           <p class="text-xs-left subheading text-uppercase font-weight-light pt-3">
             {{ subTitle }}
           </p>
@@ -125,8 +134,7 @@
                 </v-flex>
               </v-layout>
             </template> -->
-          </ListSection>
-          <v-divider></v-divider>
+          <!-- </ListSection> -->
           <p class="title font-weight-bold pt-4">Policies</p>
           <ListSection title="Villa Rules" class="py-3">
             <template v-slot:content>
@@ -134,9 +142,9 @@
             </template>
           </ListSection>
           <v-divider></v-divider>
-          <p class="subheading font-weight-bold pt-4">Cancellations</p>
-          <ListSection title="Moderate" class="py-3">
+          <ListSection title="Cancellations" class="py-3">
             <template v-slot:content>
+              <p class="subheading font-weight-bold">Moderate</p>
               <p class="pb-3">
                 If cancelled, modified or in case of no-show, the first night will be charged.
               </p>
@@ -233,8 +241,8 @@
         <div id="bookBottom" class="hidden-md-and-up book-bottom px-5">
           <div>
             <p class="subheading">
-              <span class="headline font-weight-bold">&dollar;{{ pricePerNight }}</span>
-              per night
+              <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
+              <span class="priceDesc">per night</span>
             </p>
             <Rating :rating="rating" :counter="counter"/>
           </div>
@@ -306,6 +314,13 @@ export default {
       pricePerNight: 51,
       rating: 4.5,
       counter: 390,
+      images: [
+        FrontendImg,
+        Bedroom,
+        Bedroom2,
+        Kitchen,
+        Livingroom,
+      ]
     }
   },
   components: {
@@ -332,14 +347,14 @@ export default {
     max-width: 1000px;
   }
 }
-// .image {
-//   transition: 0.8s ease;
-//   -webkit-transition: 0.8s ease;
-//   &:hover {
-//     -webkit-transform: scale(1.1);
-//     transform: scale(1.1);
-//   }
-// }
+.image {
+  transition: 0.8s ease;
+  -webkit-transition: 0.8s ease;
+  &:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
 .subDescription {
   display: flex;
   align-items: center;
