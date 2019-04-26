@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="py-3">
+  <v-footer class="pb-5">
     <v-container>
       <v-card flat tile>
         <v-card-text class="px-0">
@@ -48,6 +48,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+footer.v-footer {
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
 .language {
   display: flex;
   align-items: center;

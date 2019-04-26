@@ -1,7 +1,7 @@
 <template>
   <div class="rating">
     <div class="starWrapper">
-      <div class="starImg" :style="{width: rating * 10 + 'px'}"/>
+      <div class="starImg" :style="{width: rating * 12 + 'px'}"/>
     </div>
     <div>{{ counter }}</div>
   </div>
@@ -31,7 +31,7 @@ export default {
   display: flex;
   align-items: center;
   .starWrapper {
-    width: 50px;
+    width: 60px;
     height: 15px;
     .starImg {
       width: 35px;

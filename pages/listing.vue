@@ -37,13 +37,13 @@
           <div class="text-xs-left py-4">
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
-              <span class="mr-5">{{ guestNum }} guests</span>
-              <span class="mr-5">{{ bedRooms.length }} bedrooms</span>
-              <span>5 beds</span>
+              <span class="mr-5 font-weight-bold">{{ guestNum }} guests</span>
+              <span class="mr-5 font-weight-bold">{{ bedRooms.length }} bedrooms</span>
+              <span class="font-weight-bold">5 beds</span>
             </p>
           </div>
           <v-divider></v-divider>
-          <ListSection title="The Space" class="py-3">
+          <ListSection title="The Space" class="pt-3 pb-5">
             <template v-slot:content>
               <p>{{ theSpaceConent }}</p>
             </template>
@@ -101,7 +101,7 @@
           >
             {{ showAmenities ? 'Hide Amenities' : 'Show All Amenities' }}
           </a>
-          <v-divider></v-divider>
+          <v-divider class="mt-3"></v-divider>
           <ListSection title="Sleep Arrangements" class="py-3">
             <template v-slot:content>
               <v-layout row flex>
@@ -128,7 +128,7 @@
           </ListSection>
           <v-divider></v-divider>
           <p class="title font-weight-bold pt-4">Policies</p>
-          <ListSection title="Villa" class="py-3">
+          <ListSection title="Villa Rules" class="py-3">
             <template v-slot:content>
               <p>No smoking</p>
             </template>
@@ -167,8 +167,8 @@
             <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading">
-                  <span class="headline font-weight-bold">&dollar;{{ pricePerNight }}</span>
-                  per night
+                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
+                  <span class="priceDesc">per night</span>
                 </p>
                 <Rating :rating="rating" :counter="counter"/>
                 <v-divider class="pt-2"></v-divider>
@@ -200,7 +200,7 @@
                   append-icon="local_phone"
                 ></v-text-field>
               </v-flex>
-              <v-flex xs12>
+              <!-- <v-flex xs12>
                 <v-text-field
                   solo
                   flat
@@ -208,7 +208,7 @@
                   label="Check-in > Checkout"
                   append-icon="calendar_today"
                 ></v-text-field>
-              </v-flex>
+              </v-flex> -->
               <v-flex xs12>
                 <v-textarea
                   solo
@@ -304,7 +304,7 @@ export default {
       showAmenities: false,
       showPolicy: false,
       pricePerNight: 51,
-      rating: 4.2,
+      rating: 4.5,
       counter: 390,
     }
   },
@@ -332,14 +332,14 @@ export default {
     max-width: 1000px;
   }
 }
-.image {
-  transition: 0.8s ease;
-  -webkit-transition: 0.8s ease;
-  &:hover {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-}
+// .image {
+//   transition: 0.8s ease;
+//   -webkit-transition: 0.8s ease;
+//   &:hover {
+//     -webkit-transform: scale(1.1);
+//     transform: scale(1.1);
+//   }
+// }
 .subDescription {
   display: flex;
   align-items: center;
@@ -361,5 +361,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(0,0,0,0.12);
+}
+.priceLetter {
+  font-size: 28px;
+}
+.priceDesc {
+  margin-left: -3px;
 }
 </style>
