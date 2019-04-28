@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, span, p, div, a {
 }
 
 p {
-  margin: 0 !important;
+  margin: 0;
 }
 .v-text-field {
   background: $white;
@@ -30,4 +30,8 @@ a.btnMore {
 }
 .v-carousel__controls {
   background: transparent;
+}
+
+.v-btn--active:before, .v-btn:hover:before, .v-btn:focus:before {
+  background-color: unset;
 }
