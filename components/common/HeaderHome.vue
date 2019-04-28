@@ -30,9 +30,9 @@ export default {
     return {
       Logo,
       search: '',
-    }
+    };
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/scss/base.scss';

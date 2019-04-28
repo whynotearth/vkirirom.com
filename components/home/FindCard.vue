@@ -29,18 +29,18 @@ export default {
   props: {
     category: {
       type: String,
-      default: 'category'
+      default: 'category',
     },
     image: {
       type: String,
-      default: '/default_image.png'
+      default: '/default_image.png',
     },
     href: {
       type: String,
-      default: '#'
-    }
+      default: '#',
+    },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">

@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-    }
+    };
   },
   props: {
     rating: {
@@ -21,9 +21,9 @@ export default {
     counter: {
       default: 0,
       type: Number,
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

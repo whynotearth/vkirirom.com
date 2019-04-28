@@ -24,7 +24,7 @@ export default {
     HeaderHome,
     Footer,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

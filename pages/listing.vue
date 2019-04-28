@@ -281,7 +281,7 @@ import MultiUsers from '../assets/img/icons/multiple-users-silhouette.svg';
 import ListSection from '@/components/Listing/Section';
 import Amenity from '@/components/Listing/Amenity';
 import BedRoom from '@/components/common/card/BedRoom';
-import Calendar from '@/components/common/Calendar';
+// import Calendar from '@/components/common/Calendar';
 import Rating from '@/components/common/Rating';
 
 export default {
@@ -320,17 +320,17 @@ export default {
         Bedroom2,
         Kitchen,
         Livingroom,
-      ]
-    }
+      ],
+    };
   },
   components: {
     ListSection,
     Amenity,
     BedRoom,
-    Calendar,
+    // Calendar,
     Rating,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

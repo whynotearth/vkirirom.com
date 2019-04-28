@@ -17,15 +17,15 @@ import doubleBed from '@/assets/img/icons/double-bed.svg';
 import singleBed from '@/assets/img/icons/single-bed.svg';
 
 export default {
-  props: ['index', 'double', 'single', ],
+  props: ['index', 'double', 'single'],
   data() {
     return {
       // images
       doubleBed,
       singleBed,
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

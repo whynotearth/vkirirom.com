@@ -147,12 +147,12 @@ export default {
         title: 'Infants',
         subtitle: 'Under 2',
         amount: 0,
-      }
+      },
     ],
     guests_text: '',
   }),
   methods: {
-    addGuest: function(index) {
+    addGuest: (index) => {
       this.guest_categories[index].amount += 1;
       if (
         (index === 1 || index === 2) &&
@@ -161,12 +161,12 @@ export default {
         this.guest_categories[index - 1].amount += 1;
       }
     },
-    removeGuest: function(index) {
+    removeGuest: (index) => {
       if (this.guest_categories[index].amount) {
         this.guest_categories[index].amount -= 1;
       }
     },
-    renderGuestNumber: function() {
+    renderGuestNumber: () => {
       this.guests_text =
         this.guest_categories[0].amount +
         this.guest_categories[1].amount +
@@ -179,9 +179,9 @@ export default {
           'infant(s)';
       }
       this.guest_menu = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

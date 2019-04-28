@@ -105,60 +105,60 @@ export default {
         {
           breakpoint: 1224,
           settings: {
-            slidesToShow: 4
-          }
+            slidesToShow: 4,
+          },
         },
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 4
-          }
+            slidesToShow: 4,
+          },
         },
         {
           breakpoint: 960,
           settings: {
-            slidesToShow: 4
-          }
+            slidesToShow: 4,
+          },
         },
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2
-          }
+            slidesToShow: 2,
+          },
         },
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 2
-          }
+            slidesToShow: 2,
+          },
         },
         {
           breakpoint: 320,
           settings: {
             arrows: false,
-            slidesToShow: 1
-          }
-        }
-      ]
+            slidesToShow: 1,
+          },
+        },
+      ],
     },
     posts: [
       {
         category: 'Accommodation',
         image:
           'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
-        href: '#accommodation'
+        href: '#accommodation',
       },
       {
         category: 'Restaurants',
         image:
           'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
-        href: '#restaurant'
+        href: '#restaurant',
       },
       {
         category: 'Activities',
         image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
-        href: '#activities'
-      }
+        href: '#activities',
+      },
     ],
   }),
   computed: {
@@ -169,7 +169,7 @@ export default {
         height = '40vh';
       }
       return height;
-    }
+    },
   },
   watch: {},
 };

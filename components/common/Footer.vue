@@ -42,8 +42,8 @@ export default {
   data() {
     return {
       Flag,
-    }
-  }
+    };
+  },
 };
 </script>
 
