@@ -2,11 +2,11 @@
   <v-app class="pa-0 homeWrap">
     <v-container
       fluid
-      class="hidden-sm-and-down pa-0"
+      class="pa-0 container1"
     >
       <v-layout row wrap>
-        <v-flex xs12 class="hidden-sm-and-down homeCarousel">
-          <v-carousel hide-controls hide-delimiters height="100vh">
+        <v-flex xs12 class="homeCarousel">
+          <v-carousel hide-controls hide-delimiters :height="carouselHeight">
             <v-carousel-item
               v-for="(item,i) in images"
               :key="i"
@@ -14,16 +14,54 @@
             ></v-carousel-item>
           </v-carousel>
         </v-flex>
-        <div class="homeTop mt-3 ml-5">
+        <v-flex xs12 class="hidden-md-and-up  px-4">
+          <BookForm />
+        </v-flex>
+        <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
           <v-card class="pa-4">
             <v-card-text>
               <BookForm />
             </v-card-text>
           </v-card>
         </div>
-        <v-flex>
-          <h3>eee</h3>
-        </v-flex>
+      </v-layout>
+    </v-container>
+    <v-container class="container2">
+      <v-layout row wrap>
+        <ListCover title="What can we help you to find?">
+          <template v-slot:content>
+            <v-flex xs4 md4 lg3 v-for="post in posts" :key="post.id" class="pr-3">
+              <find-card
+                :category="post.category"
+                :image="post.image"
+                :href="post.href"
+              />
+            </v-flex>
+          </template>
+        </ListCover>
+        <ListCover title="Top-rated">
+          <template v-slot:content>
+            <no-ssr>
+            <slick ref="slick" :options="slickOptions">
+              <v-card>
+                <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              </v-card>
+              <v-card>
+                <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              </v-card>
+              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
+            </slick>
+            </no-ssr>
+          </template>
+        </ListCover>
+        <ListCover title="Accomodation"></ListCover>
+        <ListCover title="Food & Drinks"></ListCover>
+        <ListCover title="Experiences"></ListCover>
+        <ListCover title="Rental Building"></ListCover>
       </v-layout>
     </v-container>
   </v-app>
@@ -31,7 +69,9 @@
 
 <script>
 // components
+import ListCover from '@/components/home/ListCover.vue';
 import BookForm from '@/components/home/BookForm.vue';
+import FindCard from '@/components/home/FindCard.vue';
 
 // images
 import FrontendImg from '../assets/img/FrontImage.png';
@@ -44,6 +84,8 @@ export default {
   layout: 'home',
   components: {
     BookForm,
+    FindCard,
+    ListCover,
   },
   data: () => ({
     // images
@@ -53,9 +95,82 @@ export default {
       Bedroom2,
       Kitchen,
       Livingroom,
-    ]
+    ],
+    slickOptions: {
+      dots: false,
+      infinite: false,
+      slidesToShow: 6,
+      variableWidth: true,
+      responsive: [
+        {
+          breakpoint: 1224,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 960,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 320,
+          settings: {
+            arrows: false,
+            slidesToShow: 1
+          }
+        }
+      ]
+    },
+    posts: [
+      {
+        category: 'Accommodation',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
+        href: '#accommodation'
+      },
+      {
+        category: 'Restaurants',
+        image:
+          'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
+        href: '#restaurant'
+      },
+      {
+        category: 'Activities',
+        image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
+        href: '#activities'
+      }
+    ],
   }),
-  computed: {},
+  computed: {
+    carouselHeight() {
+      const curBreakPoint = this.$vuetify.breakpoint.name;
+      let height = '100vh';
+      if (curBreakPoint === 'xs' || curBreakPoint === 'sm') {
+        height = '40vh';
+      }
+      return height;
+    }
+  },
   watch: {},
 };
 </script>
@@ -63,6 +178,9 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/style/scss/base.scss';
 
+.container1 {
+  max-height: calc(100vh - 100px);
+}
 .homeWrap {
   background: transparent;
 }

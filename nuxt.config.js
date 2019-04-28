@@ -23,6 +23,10 @@ module.exports = {
       ssr: false,
     },
     {
+      src: '~/plugins/slick.js',
+      ssr: false,
+    },
+    {
       src: '~/plugins/icons.js',
       ssr: false,
     },
@@ -53,17 +57,17 @@ module.exports = {
   */
   build: {
     extractCSS: true,
-    vendor: ['axios', 'vuetify', 'airbnbDatePicker'],
+    vendor: ['axios', 'vuetify', 'airbnbDatePicker', 'vue-slick'],
     extend(config, ctx) {
       // Run ESLint on save
-      // if (ctx.isDev && ctx.isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/,
-      //   });
-      // }
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        });
+      }
     },
   },
   configureWebpack: (config) => {

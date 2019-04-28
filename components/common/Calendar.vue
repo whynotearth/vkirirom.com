@@ -30,12 +30,12 @@ import format from 'date-fns/format';
 
 export default {
   data() {
-    return {   
+    return {
       // dateFormat: 'D MMM',
       dates: ['2018-09-15', '2018-09-20'],
     };
   },
-}
+};
 </script>
 
 <style>

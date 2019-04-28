@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  props: ['imgURL', 'name']
-}
+  props: ['imgURL', 'name'],
+};
 </script>
 
 <style lang="scss">
