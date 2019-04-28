@@ -1,7 +1,7 @@
 <template>
   <v-toolbar class="navBar py-3">
     <v-toolbar-title>
-      <img :src="Logo" class="mr-5"/>
+      <nuxt-link to="/"><img :src="Logo" class="mr-5"/></nuxt-link>
     </v-toolbar-title>
     <v-text-field
       v-model="search"
