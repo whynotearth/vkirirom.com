@@ -75,6 +75,7 @@
                       outline
                       fab
                       small
+                      :disabled="item.amount === 0"
                       color="teal darken-4"
                       class="calculateBtn"
                       @click="removeGuest(i)"
@@ -152,30 +153,32 @@ export default {
   }),
   methods: {
     addGuest: function(index) {
-      this.guest_categories[index].amount += 1
+      this.guest_categories[index].amount += 1;
       if (
         (index === 1 || index === 2) &&
         this.guest_categories[index - 1].amount === 0
       ) {
-        this.guest_categories[index - 1].amount += 1
+        this.guest_categories[index - 1].amount += 1;
       }
     },
     removeGuest: function(index) {
-      this.guest_categories[index].amount -= 1
+      if (this.guest_categories[index].amount) {
+        this.guest_categories[index].amount -= 1;
+      }
     },
     renderGuestNumber: function() {
       this.guests_text =
         this.guest_categories[0].amount +
         this.guest_categories[1].amount +
-        ' guest(s)'
+        ' guest(s)';
       if (this.guest_categories[2].amount > 0) {
         this.guests_text =
           this.guests_text +
           ', ' +
           this.guest_categories[2].amount +
-          'infant(s)'
+          'infant(s)';
       }
-      this.guest_menu = false
+      this.guest_menu = false;
     }
   }
 }

@@ -5,8 +5,20 @@
     </v-toolbar-title>
     <v-spacer class="hidden-sm-and-down"></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn :ripple="false" depressed flat class="text-capitalize font-weight-bold">Sign Up</v-btn>
-      <v-btn :ripple="false" flat class="text-capitalize font-weight-bold">Sign in</v-btn>
+      <v-btn
+        :ripple="false"
+        depressed flat
+        class="text-capitalize subheading font-weight-bold"
+        color="white"
+      >Sign Up</v-btn>
+      <v-btn
+        :ripple="false"
+        flat
+        color="white"
+        class="text-capitalize subheading font-weight-bold"
+      >
+        Sign in
+      </v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
