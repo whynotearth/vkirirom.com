@@ -246,6 +246,11 @@ export default {
 }
 
 @media screen and (min-width: 1440px) {
+  .listingContainer.container {
+    max-width: 1200px;
+  }
+}
+@media screen and (min-width: 1440px) {
   .homeTop {
     left: 200px;
   }
