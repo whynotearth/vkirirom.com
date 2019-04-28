@@ -152,7 +152,7 @@ export default {
     guests_text: '',
   }),
   methods: {
-    addGuest: (index) => {
+    addGuest(index) {
       this.guest_categories[index].amount += 1;
       if (
         (index === 1 || index === 2) &&
@@ -161,12 +161,12 @@ export default {
         this.guest_categories[index - 1].amount += 1;
       }
     },
-    removeGuest: (index) => {
+    removeGuest(index) {
       if (this.guest_categories[index].amount) {
         this.guest_categories[index].amount -= 1;
       }
     },
-    renderGuestNumber: () => {
+    renderGuestNumber() {
       this.guests_text =
         this.guest_categories[0].amount +
         this.guest_categories[1].amount +

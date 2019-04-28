@@ -41,27 +41,63 @@
         </ListCover>
         <ListCover title="Top-rated">
           <template v-slot:content>
-            <no-ssr>
-            <slick ref="slick" :options="slickOptions">
-              <v-card>
-                <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              </v-card>
-              <v-card>
-                <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              </v-card>
-              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-              <v-img src="https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG" />
-            </slick>
-            </no-ssr>
+            <v-flex sm6 md3
+              v-for="(post, i) in places"
+              :key="i"
+            >
+              <top-rated-card :place="post" />
+            </v-flex>
           </template>
         </ListCover>
-        <ListCover title="Accomodation"></ListCover>
-        <ListCover title="Food & Drinks"></ListCover>
-        <ListCover title="Experiences"></ListCover>
-        <ListCover title="Rental Building"></ListCover>
+        <ListCover title="Accomodation">
+          <template v-slot:content>
+            <v-flex xs4
+              v-for="(post, i) in [places[0], places[1], places[2]]"
+              :key="i"
+            >
+              <IntroCard :place="post" />
+            </v-flex>
+            <v-flex xs12>
+              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+            </v-flex>
+          </template>
+        </ListCover>
+        <ListCover title="Food & Drinks">
+          <template v-slot:content>
+            <v-flex xs4
+              v-for="(post, i) in [places[0], places[1], places[2]]"
+              :key="i"
+            >
+              <IntroCard :place="post" />
+            </v-flex>
+            <v-flex xs12>
+              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+            </v-flex>
+          </template>
+        </ListCover>
+        <ListCover title="Experiences">
+          <template v-slot:content>
+            <v-flex xs4
+              v-for="(post, i) in [places[0], places[1], places[2]]"
+              :key="i"
+            >
+              <IntroCard :place="post" />
+            </v-flex>
+            <v-flex xs12>
+              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+            </v-flex>
+          </template>
+        </ListCover>
+        <ListCover title="Rental Building">
+          <template v-slot:content>
+            <v-flex xs6
+              v-for="(post, i) in [places[0], places[1]]"
+              :key="i"
+            >
+              <IntroCard :place="post" />
+            </v-flex>
+          </template>
+        </ListCover>
       </v-layout>
     </v-container>
   </v-app>
@@ -72,6 +108,8 @@
 import ListCover from '@/components/home/ListCover.vue';
 import BookForm from '@/components/home/BookForm.vue';
 import FindCard from '@/components/home/FindCard.vue';
+import TopRatedCard from '@/components/home/cards/TopRatedCard';
+import IntroCard from '@/components/home/cards/IntroCard';
 
 // images
 import FrontendImg from '../assets/img/FrontImage.png';
@@ -86,8 +124,11 @@ export default {
     BookForm,
     FindCard,
     ListCover,
+    TopRatedCard,
+    IntroCard,
   },
   data: () => ({
+    slickComp: '',
     // images
     images: [
       FrontendImg,
@@ -101,45 +142,6 @@ export default {
       infinite: false,
       slidesToShow: 6,
       variableWidth: true,
-      responsive: [
-        {
-          breakpoint: 1224,
-          settings: {
-            slidesToShow: 4,
-          },
-        },
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 4,
-          },
-        },
-        {
-          breakpoint: 960,
-          settings: {
-            slidesToShow: 4,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 320,
-          settings: {
-            arrows: false,
-            slidesToShow: 1,
-          },
-        },
-      ],
     },
     posts: [
       {
@@ -147,17 +149,64 @@ export default {
         image:
           'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
         href: '#accommodation',
+        title: 'Auto Camping',
+        price: '45',
+        per: 'night',
       },
       {
         category: 'Restaurants',
         image:
           'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
         href: '#restaurant',
+        title: 'Auto Camping',
+        price: '40',
+        per: 'night',
       },
       {
         category: 'Activities',
         image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
         href: '#activities',
+        title: 'Auto Camping',
+        price: '55',
+        per: 'person',
+      },
+    ],
+    places: [
+      {
+        category: 'Accomodation',
+        title: 'Luxury Tent',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
+        price: '80',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Khmer Cottage',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
+        price: '50',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Auto Camping',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
       },
     ],
   }),
@@ -171,7 +220,6 @@ export default {
       return height;
     },
   },
-  watch: {},
 };
 </script>
 
