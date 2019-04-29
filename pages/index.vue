@@ -29,11 +29,11 @@
         </div>
       </v-layout>
     </v-container>
-    <v-container class="container2 px-4">
+    <v-container class="container2 pl-4 mt-3">
       <v-layout row wrap>
         <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
-            <v-flex xs3 md4 lg3 v-for="post in posts" :key="post.id" class="pr-3">
+            <v-flex xs4 md4 lg3 v-for="post in posts" :key="post.id" class="pr-2">
               <find-card
                 :category="post.category"
                 :image="post.image"

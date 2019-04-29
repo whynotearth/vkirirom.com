@@ -23,7 +23,7 @@ export default {
   margin: 0 auto;
   a {
     margin: 0 auto;
-    width: 250px;
+    display: table;
   }
 }
 </style>

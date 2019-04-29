@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12>
         <p class="font-weight-bold title mb-3 hidden-sm-and-down">Book accommodation and activities</p>
-        <p class="font-weight-bold title mb-3 hidden-md-and-up">What can we help you to find?</p>
+        <p class="font-weight-bold subheading mb-3 hidden-md-and-up">What can we help you to find?</p>
         <v-text-field
           class="search mb-3"
           prepend-inner-icon="search"
