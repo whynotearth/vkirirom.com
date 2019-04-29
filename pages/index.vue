@@ -339,7 +339,11 @@ export default {
   max-width: 1080px !important;
   top: 150px;
 }
-
+@media screen and (max-width: 480px) {
+  .carouselText {
+    margin-top: -180px;
+  }
+}
 @media (min-width: 1440px) {
   .listingContainer.container {
     max-width: 1200px;

@@ -376,6 +376,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(0,0,0,0.12);
+  margin-left: -12px;
+  z-index: 5;
 }
 .priceLetter {
   font-size: 28px;
