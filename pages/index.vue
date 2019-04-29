@@ -14,7 +14,10 @@
             ></v-carousel-item>
           </v-carousel>
         </v-flex>
-        <v-flex xs12 class="hidden-md-and-up  px-4">
+        <div class="hidden-md-and-up carouselText">
+          <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
+        </div>
+        <v-flex xs12 class="hidden-md-and-up  px-4 bookFormWrapper">
           <BookForm />
         </v-flex>
         <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
@@ -26,11 +29,11 @@
         </div>
       </v-layout>
     </v-container>
-    <v-container class="container2">
+    <v-container class="container2 px-4">
       <v-layout row wrap>
-        <ListCover title="What can we help you to find?">
+        <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
-            <v-flex xs4 md4 lg3 v-for="post in posts" :key="post.id" class="pr-3">
+            <v-flex xs3 md4 lg3 v-for="post in posts" :key="post.id" class="pr-3">
               <find-card
                 :category="post.category"
                 :image="post.image"
@@ -68,7 +71,7 @@
               </slick>
             </v-flex>
             <v-flex xs12>
-              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+              <ShowAllBtn title="accomodation" />
             </v-flex>
           </template>
         </ListCover>
@@ -86,7 +89,7 @@
               </slick>
             </v-flex>
             <v-flex xs12>
-              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+              <ShowAllBtn title="food & drinks" />
             </v-flex>
           </template>
         </ListCover>
@@ -104,7 +107,7 @@
               </slick>
             </v-flex>
             <v-flex xs12>
-              <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+              <ShowAllBtn title="Activities" />
             </v-flex>
           </template>
         </ListCover>
@@ -133,9 +136,10 @@
 // components
 import ListCover from '@/components/home/ListCover.vue';
 import BookForm from '@/components/home/BookForm.vue';
-import FindCard from '@/components/home/FindCard.vue';
+import FindCard from '@/components/home/cards/FindCard.vue';
 import TopRatedCard from '@/components/home/cards/TopRatedCard';
 import IntroCard from '@/components/home/cards/IntroCard';
+import ShowAllBtn from '@/components/home/ShowAllButton';
 
 // images
 import FrontendImg from '../assets/img/FrontImage.png';
@@ -152,6 +156,7 @@ export default {
     ListCover,
     TopRatedCard,
     IntroCard,
+    ShowAllBtn,
   },
   data: () => ({
     slickComp: '',
@@ -307,6 +312,15 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/style/scss/base.scss';
 
+.bookFormWrapper {
+  margin-top: -80px;
+}
+.carouselText {
+  margin-top: -150px;
+  p {
+    color: white;
+  }
+}
 .container1 {
   max-height: calc(100vh - 100px);
 }

@@ -2,7 +2,8 @@
   <div id="bookForm">
     <v-layout row wrap>
       <v-flex xs12>
-        <p class="font-weight-bold title mb-3">Book accommodation and activities</p>
+        <p class="font-weight-bold title mb-3 hidden-sm-and-down">Book accommodation and activities</p>
+        <p class="font-weight-bold title mb-3 hidden-md-and-up">What can we help you to find?</p>
         <v-text-field
           class="search mb-3"
           prepend-inner-icon="search"
@@ -120,7 +121,16 @@
           color="cyan darken-4"
           :ripple="false"
           dark
-          class="text-capitalize font-weight-bold mx-0 searchBtn"
+          class="text-capitalize font-weight-bold mx-0 searchBtn hidden-sm-and-down"
+        >
+          Search
+        </v-btn>
+        <v-btn
+          color="cyan darken-4"
+          :ripple="false"
+          dark
+          block
+          class="text-capitalize font-weight-bold mx-0 hidden-md-and-up"
         >
           Search
         </v-btn>
