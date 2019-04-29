@@ -16,8 +16,8 @@
 export default {
   props: {
     place: {
-      type: Array,
-      default: () => [],
+      type: Object,
+      default: () => {},
     },
     width: {
       type: String,
