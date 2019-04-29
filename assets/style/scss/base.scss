@@ -41,3 +41,9 @@ a.btnMore {
 .v-btn--active:before, .v-btn:hover:before, .v-btn:focus:before {
   background-color: unset;
 }
+.slick-prev:before, .slick-next:before {
+  height: 100%;
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+}

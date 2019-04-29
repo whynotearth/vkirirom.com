@@ -41,21 +41,31 @@
         </ListCover>
         <ListCover title="Top-rated">
           <template v-slot:content>
-            <v-flex sm6 md3
-              v-for="(post, i) in places"
-              :key="i"
-            >
-              <top-rated-card :place="post" />
+            <v-flex xs12>
+              <slick
+                :options="slickOptions"
+              >
+                <top-rated-card
+                  v-for="(post, index) in places"
+                  :key="index"
+                  :place="post"
+                />
+              </slick>
             </v-flex>
           </template>
         </ListCover>
         <ListCover title="Accomodation">
           <template v-slot:content>
-            <v-flex xs4
-              v-for="(post, i) in [places[0], places[1], places[2]]"
-              :key="i"
-            >
-              <IntroCard :place="post" />
+            <v-flex xs12>
+              <slick
+                :options="slickOptions"
+              >
+                <IntroCard
+                  v-for="(post, index) in places"
+                  :key="index"
+                  :place="post"
+                />
+              </slick>
             </v-flex>
             <v-flex xs12>
               <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
@@ -64,11 +74,16 @@
         </ListCover>
         <ListCover title="Food & Drinks">
           <template v-slot:content>
-            <v-flex xs4
-              v-for="(post, i) in [places[0], places[1], places[2]]"
-              :key="i"
-            >
-              <IntroCard :place="post" />
+            <v-flex xs12>
+              <slick
+                :options="slickOptions"
+              >
+                <IntroCard
+                  v-for="(post, index) in places"
+                  :key="index"
+                  :place="post"
+                />
+              </slick>
             </v-flex>
             <v-flex xs12>
               <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
@@ -77,11 +92,16 @@
         </ListCover>
         <ListCover title="Experiences">
           <template v-slot:content>
-            <v-flex xs4
-              v-for="(post, i) in [places[0], places[1], places[2]]"
-              :key="i"
-            >
-              <IntroCard :place="post" />
+            <v-flex xs12>
+              <slick
+                :options="slickOptions"
+              >
+                <IntroCard
+                  v-for="(post, index) in places"
+                  :key="index"
+                  :place="post"
+                />
+              </slick>
             </v-flex>
             <v-flex xs12>
               <a class="btnMore my-2 title">Show all<v-icon>keyboard_arrow_right</v-icon></a>
@@ -90,11 +110,17 @@
         </ListCover>
         <ListCover title="Rental Building">
           <template v-slot:content>
-            <v-flex xs6
-              v-for="(post, i) in [places[0], places[1]]"
-              :key="i"
-            >
-              <IntroCard :place="post" />
+            <v-flex xs12>
+              <slick
+                :options="slickOptions"
+              >
+                <IntroCard
+                  v-for="(post, index) in places"
+                  :key="index"
+                  :place="post"
+                  width="430px"
+                />
+              </slick>
             </v-flex>
           </template>
         </ListCover>
@@ -140,8 +166,9 @@ export default {
     slickOptions: {
       dots: false,
       infinite: false,
-      slidesToShow: 6,
+      slidesToScroll: 1,
       variableWidth: true,
+      lazyLoad: 'onedemand',
     },
     posts: [
       {
@@ -208,6 +235,60 @@ export default {
         href: '#',
         per: 'night',
       },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Pipe Room',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+        price: '30',
+        href: '#',
+        per: 'night',
+      },
     ],
   }),
   computed: {
@@ -245,7 +326,7 @@ export default {
   top: 150px;
 }
 
-@media screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
   .listingContainer.container {
     max-width: 1200px;
   }

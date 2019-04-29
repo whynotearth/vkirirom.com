@@ -1,10 +1,11 @@
 <template>
   <v-img
     :src="place.image"
-    height="240px"
+    height="271px"
+    min-width="218px"
     class="py-0"
   >
-    <v-layout align-end fill-height class="pa-0 ma-0">
+    <v-layout align-end fill-height class="pa-0 ma-0 descriptionWraptop">
       <v-flex class="pa-0">
         <v-card
           class="descriptionWrap"
@@ -31,8 +32,12 @@ export default {
   border-radius: 3px;
   overflow: hidden;
 }
+.descriptionWraptop {
+  padding-top: 30px !important;
+}
 .descriptionWrap {
-  height: 100px;
+  height: 95px;
+  // padding-top: calc(100% - 100px);
   background: linear-gradient(180deg, rgba(168, 168, 168, 0.56) 0%, rgba(0, 0, 0, 0.56) 100%);
   .description {
     div {

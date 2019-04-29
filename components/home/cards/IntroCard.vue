@@ -1,8 +1,8 @@
 <template>
-  <v-card flat>
+  <v-card flat :min-width="width">
     <v-img
       :src="place.image"
-      aspect-ratio="2.75"
+      aspect-ratio="1.5"
     ></v-img>
     <v-card-text class="pl-0 pr-3 description pt-2" color="white">
       <div class="body-2 font-weight-thin text-capitalize pt-0">{{ place.category }}</div>
@@ -14,7 +14,16 @@
 
 <script>
 export default {
-  props: ['place'],
+  props: {
+    place: {
+      type: Array,
+      default: () => [],
+    },
+    width: {
+      type: String,
+      default: '284px',
+    },
+  },
 };
 </script>
 

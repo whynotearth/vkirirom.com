@@ -14,6 +14,8 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' },
+      { rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css' },
     ],
   },
   plugins: [
@@ -24,10 +26,10 @@ module.exports = {
     //   src: '~/plugins/airbnbDatePicker.js',
     //   ssr: false,
     // },
-    // {
-    //   src: '~/plugins/slick.js',
-    //   ssr: false,
-    // },
+    {
+      src: '~/plugins/slick.js',
+      ssr: false,
+    },
     // {
     //   src: '~/plugins/swiper.js',
     //   ssr: false,
@@ -63,8 +65,9 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    transpile: ['vue-slick'],
     extractCSS: true,
-    vendor: ['axios', 'vuetify', 'airbnbDatePicker'],
+    vendor: ['axios', 'vuetify', 'airbnbDatePicker', 'vue-slick'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
