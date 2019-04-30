@@ -34,12 +34,18 @@
       <v-layout row wrap>
         <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
-            <v-flex xs4 md4 lg3 v-for="post in posts" :key="post.id" class="pr-2">
-              <find-card
-                :category="post.category"
-                :image="post.image"
-                :href="post.href"
-              />
+            <v-flex xs12 class="pr-2">
+              <slick
+                :options="{...slickOptions, arrows: false, draggable: true}"
+              >
+                <find-card
+                  v-for="post in posts"
+                  :key="post.id"
+                  :category="post.category"
+                  :image="post.image"
+                  :href="post.href"
+                />
+              </slick>
             </v-flex>
           </template>
         </ListCover>

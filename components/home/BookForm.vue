@@ -84,7 +84,7 @@
                       <v-icon>remove</v-icon>
                     </v-btn>
                   </v-flex>
-                  <v-flex>
+                  <v-flex class="amount">
                     <div class="px-3 font-weight-bold">{{ item.amount }}</div>
                   </v-flex>
                   <v-flex>
@@ -186,7 +186,7 @@ export default {
           this.guests_text +
           ', ' +
           this.guest_categories[2].amount +
-          'infant(s)';
+          ' infant(s)';
       }
       this.guest_menu = false;
     },
@@ -210,5 +210,8 @@ export default {
 .calculateBtn {
   width: 30px;
   height: 30px;
+}
+.amount {
+  width: 42px;
 }
 </style>

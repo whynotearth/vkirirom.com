@@ -1,12 +1,13 @@
 <template>
   <v-hover>
     <v-card
+      :min-width="width"
       slot-scope="{ hover }"
       :class="`elevation-${hover ? 8 : 2}`"
       :href="href"
       class="card ma-0 rounded-card">
       <v-layout row wrap>
-        <v-flex xs12 md4 class="pa-0">
+        <v-flex xs12 md4>
           <v-img
             :src="image"
             height="75px"/>
@@ -14,8 +15,8 @@
         <v-flex xs12 md8 class="pa-0">
           <v-card-title primary-title :class="$vuetify.breakpoint.xs ? 'pl-2' : 'pl-3'">
             <div class="blue-grey--text text--darken-3">
-              <div class="hidden-xs-only subheading font-weight-bold text-capitalize">{{ category }}</div>
-              <div class="hidden-sm-and-up caption font-weight-bold text-capitalize">{{ category }}</div>
+              <!-- <div class="hidden-xs-only subheading font-weight-bold text-capitalize">{{ category }}</div> -->
+              <div class="subheading font-weight-bold text-xs-center text-capitalize">{{ category }}</div>
             </div>
           </v-card-title>
         </v-flex>
@@ -39,6 +40,14 @@ export default {
     href: {
       type: String,
       default: '#',
+    },
+  },
+  computed: {
+    width() {
+      if (this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm) {
+        return '150px';
+      }
+      return '250px';
     },
   },
 };
