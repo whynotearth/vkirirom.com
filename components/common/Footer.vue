@@ -83,7 +83,7 @@ footer.v-footer {
 @media screen and (max-width: 567px) {
   .otherLinks {
     display: flex;
-    justify-content: column;
+    flex-direction: column;
   }
 }
 .language {
