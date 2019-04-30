@@ -18,7 +18,7 @@
         <div class="hidden-md-and-up carouselText">
           <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
         </div>
-        <v-flex xs12 class="hidden-md-and-up  px-4 bookFormWrapper">
+        <v-flex xs12 class="hidden-md-and-up px-4 bookFormWrapper">
           <BookForm />
         </v-flex>
         <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
@@ -344,7 +344,7 @@ export default {
   width: 500px;
   position: absolute;
   max-width: 1080px !important;
-  top: 150px;
+  top: 0;
 }
 @media screen and (max-width: 480px) {
   .carouselText {
