@@ -13,7 +13,7 @@
       clearable
     >
       <template v-slot:label>
-        <span class="font-weight-bold ml-4">
+        <span class="font-weight-bold">
           Search
         </span>
       </template>

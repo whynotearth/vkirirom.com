@@ -1,0 +1,2 @@
+export const SET_RECENT_SEARCH_LIST = 'SET_RECENT_SEARCH_LIST';
+export const CUR_SEARCH = 'CUR_SEARCH';
