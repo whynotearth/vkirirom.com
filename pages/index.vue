@@ -68,7 +68,7 @@
           <template v-slot:content>
             <v-flex xs12>
               <slick
-                :options="{...slickOptions, arrows: false, draggable: false}"
+                :options="{...slickOptions, arrows: false, draggable: true}"
               >
                 <IntroCard
                   v-for="(post, index) in places"
