@@ -5,7 +5,8 @@
       <v-container grid-list-md text-xs-center fluid class="pa-0">
         <nuxt />
       </v-container>
-      <Footer class="hidden-sm-and-down"/>
+      <Footer />
+      <!-- <Footer class="hidden-sm-and-down"/> -->
     </div>
   </v-app>
 </template>

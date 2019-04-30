@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a class="btnMore my-2 title hidden-sm-and-down">Show all<v-icon>keyboard_arrow_right</v-icon></a>
+    <a class="btnMore my-1 title hidden-sm-and-down">Show all<v-icon>keyboard_arrow_right</v-icon></a>
     <div class="hidden-md-and-up hiddenMd">
-      <a class="btnMore my-2 subheading pa-2">Show all {{ title }}</a>
+      <a class="btnMore my-1 subheading pa-2">Show all {{ title }}</a>
     </div>
   </div>
 </template>

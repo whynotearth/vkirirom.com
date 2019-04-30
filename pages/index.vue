@@ -3,6 +3,7 @@
     <v-container
       fluid
       class="pa-0 container1"
+      :class="($vuetify.breakpoint.md || $vuetify.breakpoint.lg || $vuetify.breakpoint.xl) ? 'container1Md' : ''"
     >
       <v-layout row wrap>
         <v-flex xs12 class="homeCarousel">
@@ -321,7 +322,7 @@ export default {
     color: white;
   }
 }
-.container1 {
+.container1Md {
   max-height: calc(100vh - 100px);
 }
 .homeWrap {
