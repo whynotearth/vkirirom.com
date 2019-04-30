@@ -2,26 +2,14 @@
   <v-footer class="pb-5">
     <v-container>
       <v-card flat tile>
-        <v-card-text
-          class="px-0 linkWrapperMd"
-          :class="{
-            'linkWrapperXs' : $vuetify.breakpoint.xs,
-            'linkWrapperSm' : $vuetify.breakpoint.sm,
-          }"
-        >
-          <div :class="$vuetify.breakpoint.xs ? 'otherLinksXs' : 'otherLinks'">
+        <v-card-text class="px-0 linkWrapper">
+          <div class="otherLinks">
             <v-btn flat class="subheading font-weight-bold text-capitalize">Accommodation</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Restaurant</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Activities</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Shuttle Bus Booking</v-btn>
           </div>
-          <div
-            class="socialLinksMd my-2"
-            :class="{
-              'socialLinksXs': $vuetify.breakpoint.xs,
-              'socialLinksSm': $vuetify.breakpoint.sm,
-            }"
-          >
+          <div class="socialLinks my-2">
             <v-btn
               class="mx-3"
               icon
@@ -40,7 +28,7 @@
             </div>
           </div>
         </v-card-text>
-        <v-card-actions class="bottomFooter pl-3 mt-2" :class="$vuetify.breakpoint.xs || $vuetify.breakpoint.sm ? 'bottomFooterXs' : ''">
+        <v-card-actions class="bottomFooter pl-3 mt-2">
           <div class="subheading">&copy; vKiriom Pine Resort co.Ltd. All Right Reserved.</div>
           <div class="language hidden-xs-only">
             <img :src="Flag"/>
@@ -69,15 +57,9 @@ footer.v-footer {
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.linkWrapperMd {
+.linkWrapper {
   display: flex;
   justify-content: space-between;
-}
-.linkWrapperSm {
-  display: unset !important;
-}
-.linkWrapperXs {
-  display: unset !important;
 }
 .otherLinks {
   display: flex;
@@ -86,17 +68,23 @@ footer.v-footer {
     padding: 0;
   }
 }
-.otherLinksXs {
-  display: flex;
-  flex-direction: column;
+@media screen and (max-width: 960px) {
+  .linkWrapper {
+    display: unset !important;
+  }
+  .bottomFooter {
+    justify-content: space-around;
+  }
+  .socialLinks {
+    display: flex;
+    justify-content: space-around;
+  }
 }
-.socialLinksSm {
-  display: flex;
-  justify-content: space-around;
-}
-.socialLinksXs {
-  display: flex;
-  justify-content: space-around;
+@media screen and (max-width: 567px) {
+  .otherLinks {
+    display: flex;
+    justify-content: column;
+  }
 }
 .language {
   display: flex;
@@ -110,8 +98,5 @@ footer.v-footer {
 .bottomFooter {
   display: flex;
   justify-content: space-between;
-}
-.bottomFootersm {
-  justify-content: space-around;
 }
 </style>
