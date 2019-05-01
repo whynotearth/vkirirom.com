@@ -41,6 +41,7 @@
           transition="slide-y-transition"
           bottom
           full-width
+          offset-y
         >
           <v-text-field
             slot="activator"

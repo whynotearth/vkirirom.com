@@ -51,3 +51,15 @@ a.btnMore {
 .slick-slider {
   margin-right: 0px;
 }
+
+
+.v-input__append-inner {
+  display: none;
+}
+
+.v-menu__content {
+  #recommendSearchMenu & {
+    top: 75px !important;
+    left: 130px !important;
+  }
+}
