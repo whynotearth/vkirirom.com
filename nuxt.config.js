@@ -20,20 +20,14 @@ module.exports = {
   },
   plugins: [
     '~/plugins/vuetify.js',
-    // '~/plugins/airbnbDatePicker.js',
-    // '~/plugins/filestack.js',
-    // {
-    //   src: '~/plugins/airbnbDatePicker.js',
-    //   ssr: false,
-    // },
+    {
+      src: '~/plugins/datepicker.js',
+      ssr: false,
+    },
     {
       src: '~/plugins/slick.js',
       ssr: false,
     },
-    // {
-    //   src: '~/plugins/swiper.js',
-    //   ssr: false,
-    // },
     {
       src: '~/plugins/icons.js',
       ssr: false,
@@ -42,7 +36,6 @@ module.exports = {
   css: [
     '~/assets/style/app.styl',
     { src: '~assets/style/scss/base.scss', lang: 'scss' },
-    'swiper/dist/css/swiper.css',
   ],
   modules: [
     // ['@nuxtjs/google-gtag',
@@ -67,7 +60,7 @@ module.exports = {
   build: {
     transpile: ['vue-slick'],
     extractCSS: true,
-    vendor: ['axios', 'vuetify', 'airbnbDatePicker', 'vue-slick'],
+    vendor: ['axios', 'vuetify', 'vue-slick'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
@@ -78,13 +71,6 @@ module.exports = {
           exclude: /(node_modules)/,
         });
       }
-      // if (ctx.isServer) {
-      //   config.externals = [
-      //     nodeExternals({
-      //       whitelist: [/^vue-slick/],
-      //     }),
-      //   ];
-      // }
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({

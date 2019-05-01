@@ -208,15 +208,9 @@
                   append-icon="local_phone"
                 ></v-text-field>
               </v-flex>
-              <!-- <v-flex xs12>
-                <v-text-field
-                  solo
-                  flat
-                  hide-details
-                  label="Check-in > Checkout"
-                  append-icon="calendar_today"
-                ></v-text-field>
-              </v-flex> -->
+              <v-flex xs12>
+                <Calendar />
+              </v-flex>
               <v-flex xs12>
                 <v-textarea
                   solo
@@ -263,6 +257,8 @@
 </template>
 
 <script>
+import format from 'date-fns/format';
+
 // images
 import FrontendImg from '../assets/img/FrontImage.png';
 import Bedroom from '../assets/img/Bedroom.svg';
@@ -281,7 +277,7 @@ import MultiUsers from '../assets/img/icons/multiple-users-silhouette.svg';
 import ListSection from '@/components/Listing/Section';
 import Amenity from '@/components/Listing/Amenity';
 import BedRoom from '@/components/common/card/BedRoom';
-// import Calendar from '@/components/common/Calendar';
+import Calendar from '@/components/common/Calendar';
 import Rating from '@/components/common/Rating';
 
 export default {
@@ -301,6 +297,11 @@ export default {
       MultiUsers,
 
       // states
+
+      dateFormat: 'D MMM',
+      dateOne: '',
+      dateTwo: '',
+
       theSpaceConent: 'City Apartment is newly renovated in the heart of Budapest, right in the city center. Lorem ipsum doior sitamet, consecteture adipiscing elite, sed do eiusmod tempor incidjls.',
       bedRooms: [
         { double: 2, single: 1 },
@@ -327,8 +328,20 @@ export default {
     ListSection,
     Amenity,
     BedRoom,
-    // Calendar,
+    Calendar,
     Rating,
+  },
+  methods: {
+    formatDates(dateOne, dateTwo) {
+      let formattedDates = '';
+      if (dateOne) {
+        formattedDates = format(dateOne, this.dateFormat);
+      }
+      if (dateTwo) {
+        formattedDates += ' - ' + format(dateTwo, this.dateFormat);
+      }
+      return formattedDates;
+    },
   },
 };
 </script>
