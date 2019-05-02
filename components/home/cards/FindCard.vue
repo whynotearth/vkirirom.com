@@ -13,7 +13,7 @@
             height="75px"/>
         </v-flex>
         <v-flex xs12 md8 class="pa-0">
-          <v-card-title primary-title :class="$vuetify.breakpoint.xs ? 'pl-2' : 'pl-3'">
+          <v-card-title primary-title class="pl-3">
             <div class="blue-grey--text text--darken-3">
               <!-- <div class="hidden-xs-only subheading font-weight-bold text-capitalize">{{ category }}</div> -->
               <div class="subheading font-weight-bold text-xs-center text-capitalize">{{ category }}</div>
