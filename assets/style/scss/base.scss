@@ -1,4 +1,5 @@
 @import './_variables.scss';
+@import './datepicker.scss';
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 h1, h2, h3, h4, h5, span, p, div, a {
@@ -62,9 +63,4 @@ a.btnMore {
     top: 75px !important;
     left: 130px !important;
   }
-}
-.airBnBDatePicker {
-  top: unset !important;
-  right: unset !important;
-  left: unset !important;
 }

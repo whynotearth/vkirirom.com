@@ -1,0 +1,17 @@
+@import './_variables.scss';
+
+.airBnBDatePicker {
+  top: unset !important;
+  right: unset !important;
+  left: unset !important;
+}
+.asd__wrapper {
+  margin-top: 5px;
+  &.borderHiddin {
+    border: none;
+  }
+}
+.asd__keyboard-shortcuts-trigger-wrapper {
+  display: none;
+}
+  

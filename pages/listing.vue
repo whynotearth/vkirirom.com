@@ -125,16 +125,22 @@
             </template>
           </ListSection>
           <v-divider></v-divider>
-          <!-- <ListSection title="Availability" class="py-3">
+          <ListSection title="Availability" class="py-3">
             <template v-slot:content>
               <v-layout row flex>
                 <v-flex xs12>
                   <p>Update 3 days ago</p>
-                  <Calendar />
+                  <Calendar
+                    triggerID="availability"
+                    monthsToShow="2"
+                    :showInput="false"
+                    :cardBorder="false"
+                    :showActionButtons="false"
+                  />
                 </v-flex>
               </v-layout>
-            </template> -->
-          <!-- </ListSection> -->
+            </template>
+          </ListSection>
           <p class="title font-weight-bold pt-4">Policies</p>
           <ListSection title="Villa Rules" class="py-3">
             <template v-slot:content>
@@ -209,7 +215,13 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <Calendar />
+                <Calendar
+                  triggerID="bookLeftForm"
+                  monthsToShow="1"
+                  :showInput="true"
+                  :cardBorder="true"
+                  :showActionButtons="true"
+                />
               </v-flex>
               <v-flex xs12>
                 <v-textarea

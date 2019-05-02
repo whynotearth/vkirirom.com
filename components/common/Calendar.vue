@@ -6,17 +6,22 @@
       hide-details
       label="Check-in > Checkout"
       append-icon="calendar_today"
-      id="datepicker-trigger"
+      :id="triggerID"
       :value="formatDates(dateOne, dateTwo)"
+      v-if="showInput"
     ></v-text-field>
+    <div v-else :id="triggerID"></div>
     <AirbnbStyleDatepicker
       class="airBnBDatePicker"
-      :trigger-element-id="'datepicker-trigger'"
+      :class="cardBorder ? '' : 'borderHiddin'"
+      :trigger-element-id="triggerID"
       :mode="'range'"
-      :months-to-show="1"
+      :inline="!showInput"
+      :months-to-show="monthsToShow"
       :fullscreen-mobile="true"
       :date-one="dateOne"
       :date-two="dateTwo"
+      :showActionButtons="showActionButtons"
       @date-one-selected="val => { dateOne = val }"
       @date-two-selected="val => { dateTwo = val }"
     />
@@ -27,6 +32,7 @@
 import format from 'date-fns/format';
 // import component and stylesheet
 export default {
+  props: ['triggerID', 'monthsToShow', 'showInput', 'cardBorder', 'showActionButtons'],
   data() {
     return {
       dateFormat: 'D MMM',
