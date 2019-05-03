@@ -48,8 +48,9 @@
         :months-to-show="1"
         :fullscreen-mobile="fullScreenMobile"
         :date-one="inlineDateOne"
+        close-icon="close"
         :showActionButtons="showActionButtons"
-        @date-one-selected="function(val) { inlineDateOne = val }"
+        @date-one-selected="val => { inlineDateOne = val }"
       />
     </div>
   </div>

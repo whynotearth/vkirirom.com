@@ -418,13 +418,4 @@ export default {
 .priceDesc {
   margin-left: -3px;
 }
-.availability {
-  .asd__change-month-button--next {
-    right: 36px;
-    padding-right: 0;
-  }
-  .asd__month {
-    width: 290px;
-  }
-}
 </style>

@@ -37,7 +37,7 @@
         <p class="font-weight-bold subheading mb-1">Check out</p>
         <Calendar
           :mode="'single'"
-          label="mm/dd"
+          label="mm/dd/yy"
           :triggerID="`${visibleID}CheckOut`"
           monthsToShow="2"
           :showInput="true"
