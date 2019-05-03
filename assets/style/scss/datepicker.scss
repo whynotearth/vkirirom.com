@@ -4,6 +4,12 @@
   top: unset !important;
   right: unset !important;
   left: unset !important;
+  &.asd__wrapper--full-screen {
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
 }
 .asd__wrapper {
   margin-top: 5px;
@@ -14,4 +20,15 @@
 .asd__keyboard-shortcuts-trigger-wrapper {
   display: none;
 }
-  
+
+
+.availability {
+  .asd__change-month-button--next {
+    right: 36px;
+    padding-right: 0;
+  }
+  .asd__month {
+    width: 290px !important;
+    margin-left: 3px;
+  }
+}

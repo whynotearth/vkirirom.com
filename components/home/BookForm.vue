@@ -17,21 +17,33 @@
       </v-flex>
       <v-flex xs6>
         <p class="font-weight-bold subheading mb-1">Check in</p>
-        <v-text-field
+        <!-- <v-text-field
           hide-details
           solo
           flat
           label="mm/dd/yy"
-        ></v-text-field>`
+        ></v-text-field> -->
+        <Calendar
+          :mode="'single'"
+          label="mm/dd/yy"
+          :triggerID="`${visibleID}CheckIn`"
+          monthsToShow="2"
+          :showInput="true"
+          :cardBorder="true"
+          :showActionButtons="true"
+        />
       </v-flex>
       <v-flex xs6>
         <p class="font-weight-bold subheading mb-1">Check out</p>
-        <v-text-field
-          hide-details
-          solo
-          flat
-          label="mm/dd/yy"
-        ></v-text-field>`
+        <Calendar
+          :mode="'single'"
+          label="mm/dd"
+          :triggerID="`${visibleID}CheckOut`"
+          monthsToShow="2"
+          :showInput="true"
+          :cardBorder="true"
+          :showActionButtons="true"
+        />
       </v-flex>
       <v-flex xs12>
         <p class="font-weight-bold subheading mb-1">Guest</p>
@@ -141,7 +153,13 @@
 </template>
 
 <script>
+import Calendar from '@/components/common/Calendar.vue';
+
 export default {
+  components: {
+    Calendar,
+  },
+  props: ['visibleID'],
   data: () => ({
     guest_menu: false,
     guest_categories: [

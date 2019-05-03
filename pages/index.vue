@@ -19,12 +19,12 @@
           <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
         </div>
         <v-flex xs12 class="hidden-md-and-up px-4 bookFormWrapper">
-          <BookForm />
+          <BookForm visibleID="bookFormMD"/>
         </v-flex>
         <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
           <v-card class="pa-4">
             <v-card-text>
-              <BookForm />
+              <BookForm visibleID="bookFormSM" />
             </v-card-text>
           </v-card>
         </div>

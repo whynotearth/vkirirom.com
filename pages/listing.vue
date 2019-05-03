@@ -128,9 +128,11 @@
           <ListSection title="Availability" class="py-3">
             <template v-slot:content>
               <v-layout row flex>
-                <v-flex xs12>
+                <v-flex xs12 class="availability">
                   <p>Update 3 days ago</p>
                   <Calendar
+                    :fullScreenMobile="false"
+                    :mode="'range'"
                     triggerID="availability"
                     monthsToShow="2"
                     :showInput="false"
@@ -216,6 +218,7 @@
               </v-flex>
               <v-flex xs12>
                 <Calendar
+                  :mode="'range'"
                   triggerID="bookLeftForm"
                   monthsToShow="1"
                   :showInput="true"
@@ -372,6 +375,11 @@ export default {
     max-width: 1000px;
   }
 }
+@media screen and (max-width: 1200px) {
+  .listingContainer.container {
+    min-width: 900px;
+  }
+}
 .image {
   transition: 0.8s ease;
   -webkit-transition: 0.8s ease;
@@ -409,5 +417,14 @@ export default {
 }
 .priceDesc {
   margin-left: -3px;
+}
+.availability {
+  .asd__change-month-button--next {
+    right: 36px;
+    padding-right: 0;
+  }
+  .asd__month {
+    width: 290px;
+  }
 }
 </style>
