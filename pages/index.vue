@@ -19,6 +19,7 @@
           <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
         </div>
         <v-flex xs12 class="hidden-md-and-up px-4 bookFormWrapper">
+          {{ images }}
           <BookForm visibleID="bookFormMD"/>
         </v-flex>
         <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
