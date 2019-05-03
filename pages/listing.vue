@@ -1,5 +1,5 @@
 <template>
-  <v-app class="pa-0">
+  <v-app class="pa-0 listing">
     <v-container fluid class="pa-0">
       <v-layout row flex class="pa-0 mx-0">
         <v-flex xs12 sm12 md6 class="pa-0 overflow-hidden hidden-sm-and-down">
