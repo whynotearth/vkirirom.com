@@ -4,7 +4,7 @@
       <nuxt-link to="/"><img :src="Logo" class="mr-5"/></nuxt-link>
     </v-toolbar-title>
     <v-toolbar-title>
-      <SearchInput />
+      <!-- <SearchInput /> -->
     </v-toolbar-title>
     <v-spacer class="hidden-sm-and-down"></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -16,7 +16,7 @@
 <script>
 import Logo from '@/assets/img/logo.svg';
 
-import SearchInput from './SearchInput';
+// import SearchInput from './SearchInput';
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
     };
   },
   components: {
-    SearchInput,
+    // SearchInput,
   },
 };
 </script>
