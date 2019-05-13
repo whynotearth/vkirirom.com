@@ -12,12 +12,17 @@
 -->
           </div>
           <div class="socialLinks my-2">
+
             <v-btn
               class="mx-3"
               icon
             >
-              <v-icon size="35px">fab fa-facebook</v-icon>
+              <a href="https://www.facebook.com/vkirirom/">
+                <v-icon size="35px">fab fa-facebook</v-icon>
+              </a>
             </v-btn>
+
+
             <v-btn
               class="mx-3"
               icon
