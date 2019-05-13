@@ -194,23 +194,6 @@ export default {
         price: '45',
         per: 'night',
       },
-      {
-        category: 'Restaurants',
-        image:
-          'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
-        href: '#restaurant',
-        title: 'Auto Camping',
-        price: '40',
-        per: 'night',
-      },
-      {
-        category: 'Activities',
-        image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
-        href: '#activities',
-        title: 'Auto Camping',
-        price: '55',
-        per: 'person',
-      },
     ],
     places: [
       {
@@ -374,3 +357,24 @@ export default {
   }
 }
 </style>
+
+
+<!--
+{
+  category: 'Restaurants',
+  image:
+    'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
+  href: '#restaurant',
+  title: 'Auto Camping',
+  price: '40',
+  per: 'night',
+},
+{
+  category: 'Activities',
+  image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
+  href: '#activities',
+  title: 'Auto Camping',
+  price: '55',
+  per: 'person',
+},
+-->
