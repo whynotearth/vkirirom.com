@@ -82,6 +82,7 @@
             </v-flex>
           </template>
         </ListCover>
+<!--
         <ListCover title="Food & Drinks">
           <template v-slot:content>
             <v-flex xs12>
@@ -134,6 +135,7 @@
             </v-flex>
           </template>
         </ListCover>
+-->
       </v-layout>
     </v-container>
   </v-app>
