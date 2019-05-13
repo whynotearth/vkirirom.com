@@ -27,7 +27,9 @@
               class="mx-3"
               icon
             >
-              <v-icon inverted size="35px">fab fa-instagram</v-icon>
+              <a href="https://www.instagram.com/vkirirom_pine_resort/">
+                <v-icon inverted size="35px">fab fa-instagram</v-icon>
+              </a>
             </v-btn>
             <div class="language hidden-sm-and-up">
               <img :src="Flag"/>
