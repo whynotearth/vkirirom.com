@@ -64,7 +64,7 @@
             </v-flex>
           </template>
         </ListCover>
-        <ListCover title="Accomodation">
+        <ListCover title="Accommodation">
           <template v-slot:content>
             <v-flex xs12>
               <slick
@@ -78,7 +78,7 @@
               </slick>
             </v-flex>
             <v-flex xs12>
-              <ShowAllBtn title="accomodation" />
+              <ShowAllBtn title="accommodation" />
             </v-flex>
           </template>
         </ListCover>
@@ -197,7 +197,7 @@ export default {
     ],
     places: [
       {
-        category: 'Accomodation',
+        category: 'Accommodation',
         title: 'Luxury Tent',
         image:
           'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
