@@ -108,4 +108,5 @@ footer.v-footer {
   display: flex;
   justify-content: space-between;
 }
+
 </style>
