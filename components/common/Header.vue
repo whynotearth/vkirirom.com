@@ -16,7 +16,7 @@
   </v-toolbar>
 </template>
 <script>
-import Logo from '@/assets/img/logo.svg';
+import Logo from '@/assets/img/Logo.svg';
 
 // import SearchInput from './SearchInput';
 
