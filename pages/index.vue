@@ -64,7 +64,7 @@
             </v-flex>
           </template>
         </ListCover>
-        <ListCover title="Accomodation">
+        <ListCover title="Accommodation">
           <template v-slot:content>
             <v-flex xs12>
               <slick
@@ -78,10 +78,11 @@
               </slick>
             </v-flex>
             <v-flex xs12>
-              <ShowAllBtn title="accomodation" />
+              <ShowAllBtn title="accommodation" />
             </v-flex>
           </template>
         </ListCover>
+<!--
         <ListCover title="Food & Drinks">
           <template v-slot:content>
             <v-flex xs12>
@@ -134,6 +135,7 @@
             </v-flex>
           </template>
         </ListCover>
+-->
       </v-layout>
     </v-container>
   </v-app>
@@ -192,27 +194,10 @@ export default {
         price: '45',
         per: 'night',
       },
-      {
-        category: 'Restaurants',
-        image:
-          'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
-        href: '#restaurant',
-        title: 'Auto Camping',
-        price: '40',
-        per: 'night',
-      },
-      {
-        category: 'Activities',
-        image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
-        href: '#activities',
-        title: 'Auto Camping',
-        price: '55',
-        per: 'person',
-      },
     ],
     places: [
       {
-        category: 'Accomodation',
+        category: 'Accommodation',
         title: 'Luxury Tent',
         image:
           'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
@@ -372,3 +357,24 @@ export default {
   }
 }
 </style>
+
+
+<!--
+{
+  category: 'Restaurants',
+  image:
+    'https://www.healthline.com/hlcmsresource/images/News/food-fads/070615_restaurants_THUMB_LARGE.jpg',
+  href: '#restaurant',
+  title: 'Auto Camping',
+  price: '40',
+  per: 'night',
+},
+{
+  category: 'Activities',
+  image: 'https://www.vkirirom.com/images/Activity/BubbleSoccer.jpg',
+  href: '#activities',
+  title: 'Auto Camping',
+  price: '55',
+  per: 'person',
+},
+-->

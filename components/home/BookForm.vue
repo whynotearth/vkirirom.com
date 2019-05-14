@@ -1,6 +1,7 @@
 <template>
   <div id="bookForm">
     <v-layout row wrap>
+<!--
       <v-flex xs12>
         <p class="font-weight-bold title mb-3 hidden-sm-and-down">Book accommodation and activities</p>
         <p class="font-weight-bold subheading mb-3 hidden-md-and-up">What can we help you to find?</p>
@@ -15,6 +16,7 @@
         >
         </v-text-field>
       </v-flex>
+-->
       <v-flex xs6>
         <p class="font-weight-bold subheading mb-1">Check in</p>
         <!-- <v-text-field

@@ -5,22 +5,31 @@
         <v-card-text class="px-0 linkWrapper">
           <div class="otherLinks">
             <v-btn flat class="subheading font-weight-bold text-capitalize">Accommodation</v-btn>
+<!--
             <v-btn flat class="subheading font-weight-bold text-capitalize">Restaurant</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Activities</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Shuttle Bus Booking</v-btn>
+-->
           </div>
           <div class="socialLinks my-2">
+
             <v-btn
               class="mx-3"
               icon
             >
-              <v-icon size="35px">fab fa-facebook</v-icon>
+              <a href="https://www.facebook.com/vkirirom/">
+                <v-icon size="35px">fab fa-facebook</v-icon>
+              </a>
             </v-btn>
+
+
             <v-btn
               class="mx-3"
               icon
             >
-              <v-icon inverted size="35px">fab fa-instagram</v-icon>
+              <a href="https://www.instagram.com/vkirirom_pine_resort/">
+                <v-icon inverted size="35px">fab fa-instagram</v-icon>
+              </a>
             </v-btn>
             <div class="language hidden-sm-and-up">
               <img :src="Flag"/>
