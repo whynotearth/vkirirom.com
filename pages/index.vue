@@ -22,7 +22,10 @@
           <BookForm visibleID="bookFormMD"/>
         </v-flex>
         <div class="homeTop mt-3 ml-5 hidden-sm-and-down">
-          <v-card class="pa-4">
+          <v-card class="pa-4 rounded-card">
+            <v-card-text>
+              <p class="headline font-weight-bold" color="white">Book accommodation and activities.</p>
+            </v-card-text>
             <v-card-text>
               <BookForm visibleID="bookFormSM" />
             </v-card-text>
@@ -32,6 +35,7 @@
     </v-container>
     <v-container class="container2 pl-4 mt-3">
       <v-layout row wrap>
+        <div @click="scrollMeTo('accomodation')">
         <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
             <v-flex xs12 class="pr-2">
@@ -49,6 +53,7 @@
             </v-flex>
           </template>
         </ListCover>
+        </div>
         <ListCover title="Top-rated">
           <template v-slot:content>
             <v-flex xs12>
@@ -64,6 +69,7 @@
             </v-flex>
           </template>
         </ListCover>
+        <section ref="accommodation">
         <ListCover title="Accommodation">
           <template v-slot:content>
             <v-flex xs12>
@@ -82,6 +88,7 @@
             </v-flex>
           </template>
         </ListCover>
+        </section>
 <!--
         <ListCover title="Food & Drinks">
           <template v-slot:content>
@@ -193,6 +200,7 @@ export default {
         title: 'Auto Camping',
         price: '45',
         per: 'night',
+        refName: 'accommodation',
       },
     ],
     places: [
@@ -298,11 +306,27 @@ export default {
       return height;
     },
   },
+  methods: {
+    scrollMeTo(refName) {
+      const element = this.$refs[refName];
+      const top = element.offsetTop;
+
+      window.scrollTo(0, top);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/style/scss/base.scss';
+
+.rounded-image{
+  border-radius: 10px;
+}
+.rounded-card {
+  border-radius: 10px;
+  overflow: hidden;
+}
 
 .bookFormWrapper {
   margin-top: -80px;

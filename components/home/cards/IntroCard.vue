@@ -1,8 +1,9 @@
 <template>
-  <v-card flat :min-width="width">
+  <v-card flat :min-width="width" class="rounded-card">
     <v-img
       :src="place.image"
       aspect-ratio="1.5"
+      class="rounded-image"
     ></v-img>
     <v-card-text class="pl-0 pr-3 description pt-2" color="white">
       <div class="body-2 font-weight-thin text-capitalize pt-0">{{ place.category }}</div>
@@ -28,5 +29,11 @@ export default {
 </script>
 
 <style>
-
+.rounded-image{
+  border-radius: 10px;
+}
+.rounded-card {
+  border-radius: 10px;
+  overflow: hidden;
+}
 </style>
