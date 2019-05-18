@@ -4,8 +4,8 @@
       :min-width="width"
       slot-scope="{ hover }"
       :class="`elevation-${hover ? 8 : 2}`"
-
-      class="card ma-0 rounded-card"
+      :href="href"
+      class="card ma-0 rounded-card">
     >
       <v-layout row wrap>
         <v-flex xs12 md4>
@@ -38,7 +38,10 @@ export default {
       type: String,
       default: '/default_image.png',
     },
-
+    href: {
+      type: String,
+      default: '#',
+    },
   },
   computed: {
     width() {
