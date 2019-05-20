@@ -3,12 +3,12 @@
     :src="place.image"
     height="271px"
     min-width="218px"
-    class="py-0"
+    class="py-0 rounded-image"
   >
     <v-layout align-end fill-height class="pa-0 ma-0 descriptionWraptop">
       <v-flex class="pa-0">
         <v-card
-          class="descriptionWrap"
+          class="descriptionWrap rounded-card"
         >
           <v-card-text class="px-2 description pt-2" color="white">
             <div class="body-2 font-weight-thin text-capitalize pt-0">{{ place.category }}</div>
@@ -28,8 +28,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.rounded-image{
+  border-radius: 10px;
+}
 .rounded-card {
-  border-radius: 3px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .descriptionWraptop {

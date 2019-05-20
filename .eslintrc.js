@@ -46,6 +46,7 @@ module.exports = {
     'prefer-destructuring': 0,
     'prefer-template': 0,
     'operator-linebreak': 0,
+    "linebreak-style": [2, "windows"],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
