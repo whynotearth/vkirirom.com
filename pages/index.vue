@@ -35,7 +35,7 @@
     </v-container>
     <v-container class="container2 pl-4 mt-3">
       <v-layout row wrap>
-        <div @click="scrollMeTo('accomodation')">
+        <div @click="scrollMeTo('accommodation')">
         <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
             <v-flex xs12 class="pr-2">
@@ -69,7 +69,7 @@
             </v-flex>
           </template>
         </ListCover>
-        <section ref="accommodation">
+        <div id='accommodation'>
         <ListCover title="Accommodation">
           <template v-slot:content>
             <v-flex xs12>
@@ -88,7 +88,7 @@
             </v-flex>
           </template>
         </ListCover>
-        </section>
+        </div>
 <!--
         <ListCover title="Food & Drinks">
           <template v-slot:content>
@@ -307,8 +307,8 @@ export default {
     },
   },
   methods: {
-    scrollMeTo(refName) {
-      const element = this.$refs[refName];
+    scrollMeTo(el) {
+      const element = document.getElementById(el);
       const top = element.offsetTop;
 
       window.scrollTo(0, top);
