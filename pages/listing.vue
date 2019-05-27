@@ -180,7 +180,9 @@
         </v-flex>
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
-            <v-layout row wrap>
+            <v-form name="contact" action="" method="post" netlify>
+           <input type="hidden" name="form-name" value="contact" />
+              <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading">
                   <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
@@ -195,6 +197,7 @@
                   flat
                   hide-details
                   label="Email Address"
+                  name="Email"
                   append-icon="email"
                 ></v-text-field>
               </v-flex>
@@ -204,6 +207,7 @@
                   flat
                   hide-details
                   label="Name"
+                  name="Name"
                   append-icon="person_outline"
                 ></v-text-field>
               </v-flex>
@@ -212,6 +216,7 @@
                   solo
                   flat
                   label="Phone"
+                  name="Phone"
                   hide-details
                   append-icon="local_phone"
                 ></v-text-field>
@@ -220,6 +225,7 @@
                 <Calendar
                   :mode="'range'"
                   triggerID="bookLeftForm"
+                  name="Calendar"
                   monthsToShow="1"
                   :showInput="true"
                   :cardBorder="true"
@@ -231,7 +237,7 @@
                   solo
                   flat
                   hide-details
-                  name="input-7-4"
+                  name="Message"
                   label="Message"
                 ></v-textarea>
               </v-flex>
@@ -242,9 +248,11 @@
               :ripple="false"
               dark
               class="text-capitalize font-weight-bold"
+              type="submit"
             >
               Book
             </v-btn>
+            </v-form>
           </v-card>
         </v-flex>
         <div id="bookBottom" class="hidden-md-and-up book-bottom px-5">
