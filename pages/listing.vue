@@ -180,8 +180,8 @@
         </v-flex>
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
-            <v-form name="contact" action="" method="post" netlify>
-           <input type="hidden" name="form-name" value="contact" />
+            <v-form name="bookForm" action="" method="post" netlify>
+           <input type="hidden" name="bookFor" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading">
