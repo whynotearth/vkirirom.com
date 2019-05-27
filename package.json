@@ -2,7 +2,7 @@
   "name": "vKirirom-Pine-Resort",
   "version": "1.0.0",
   "description": "vKirirom Pine Resort",
-  "author": "Web Star <webcodestar@gmail.com>",
+  "author": "Phok Chanrithisak",
   "private": true,
   "scripts": {
     "dev": "nuxt",
