@@ -2,7 +2,7 @@
   "name": "vKirirom-Pine-Resort",
   "version": "1.0.0",
   "description": "vKirirom Pine Resort",
-  "author": "Web Star <webcodestar@gmail.com>",
+  "author": "Phok Chanrithisak",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,6 +10,10 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "main": "dist/index.js",
+  "files": [
+      "dist/index.js"
+  ],
   "dependencies": {
     "@nuxtjs/google-gtag": "^1.0.4",
     "axios": "^0.18.0",
