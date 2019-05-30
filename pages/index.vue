@@ -13,9 +13,12 @@
               :key="i"
               :src="item"
             ></v-carousel-item>
+            <div class="carouselText">
+              <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
+            </div>
           </v-carousel>
         </v-flex>
-        <div class="hidden-md-and-up carouselText">
+        <div class="carouselText">
           <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
         </div>
         <v-flex xs12 class="hidden-md-and-up px-4 bookFormWrapper">
@@ -299,7 +302,7 @@ export default {
   computed: {
     carouselHeight() {
       const curBreakPoint = this.$vuetify.breakpoint.name;
-      let height = '100vh';
+      let height = '55vh';
       if (curBreakPoint === 'xs' || curBreakPoint === 'sm') {
         height = '40vh';
       }
