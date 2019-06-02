@@ -18,7 +18,7 @@
             </div>
           </v-carousel>
         </v-flex>
-        <div class="carouselText">
+        <div class="carouselText hidden-md-and-up">
           <p class="headline font-weight-bold px-4" color="white">Book accommodation and activities.</p>
         </div>
         <v-flex xs12 class="hidden-md-and-up px-4 bookFormWrapper">
@@ -36,9 +36,19 @@
         </div>
       </v-layout>
     </v-container>
-    <v-container class="container2 pl-4 mt-3">
+    <v-container>
+    <div class="text-xs-center mt-3 hidden-sm-and-down">
+      <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
+      <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+    </div>
+    <div class="text-xs-center hidden-md-and-up">
+      <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
+      <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+    </div>
+    </v-container>
+    <v-container class="container2 pl-4">
       <v-layout row wrap>
-        <div @click="scrollMeTo('accommodation')">
+        <!-- <div @click="scrollMeTo('accommodation')">
         <ListCover title="Explore vKirirom Pine Resort">
           <template v-slot:content>
             <v-flex xs12 class="pr-2">
@@ -56,8 +66,8 @@
             </v-flex>
           </template>
         </ListCover>
-        </div>
-        <ListCover title="Top-rated">
+        </div> -->
+        <ListCover title="Top-rated" id="top-rated">
           <template v-slot:content>
             <v-flex xs12>
               <slick
@@ -72,12 +82,11 @@
             </v-flex>
           </template>
         </ListCover>
-        <div id='accommodation'>
-        <ListCover title="Accommodation">
+        <ListCover title="Accommodation" id="accommodation">
           <template v-slot:content>
             <v-flex xs12>
               <slick
-                :options="{...slickOptions, arrows: false, draggable: true}"
+                :options="slickOptions"
               >
                 <IntroCard
                   v-for="(post, index) in places"
@@ -86,12 +95,12 @@
                 />
               </slick>
             </v-flex>
+            </template>
+        </ListCover>
             <v-flex xs12>
               <ShowAllBtn title="accommodation" />
             </v-flex>
-          </template>
-        </ListCover>
-        </div>
+        
 <!--
         <ListCover title="Food & Drinks">
           <template v-slot:content>
@@ -182,15 +191,15 @@ export default {
     // images
     images: [
       FrontendImg,
-      Bedroom,
-      Bedroom2,
-      Kitchen,
-      Livingroom,
+      // Bedroom,
+      // Bedroom2,
+      // Kitchen,
+      // Livingroom,
     ],
     slickOptions: {
       dots: false,
       infinite: false,
-      slidesToScroll: 1,
+      slidesToScroll: 5,
       variableWidth: true,
       lazyLoad: 'onedemand',
     },

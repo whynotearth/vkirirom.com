@@ -9,12 +9,16 @@
       <v-flex class="pa-0">
         <v-card
           class="descriptionWrap rounded-card"
+          href="./listing"
         >
           <v-card-text class="px-2 description pt-2" color="white">
             <div class="body-2 font-weight-thin text-capitalize pt-0">{{ place.category }}</div>
             <div class="title font-weight-bold text-capitalize py-2">{{ place.title }}</div>
             <div class="subheading font-weight-thin text-lowercase">${{ place.price }} {{ place.per }}</div>
           </v-card-text>
+          <v-card-actions>
+
+          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -24,6 +28,8 @@
 <script>
 export default {
   props: ['place'],
+  methods: {
+  }
 };
 </script>
 
