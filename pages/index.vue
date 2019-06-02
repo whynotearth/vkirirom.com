@@ -197,9 +197,9 @@ export default {
       // Livingroom,
     ],
     slickOptions: {
-      dots: false,
+      dots: true,
       infinite: false,
-      slidesToScroll: 5,
+      slidesToScroll: 1,
       variableWidth: true,
       lazyLoad: 'onedemand',
     },
