@@ -1,4 +1,5 @@
 <template>
+<nuxt-link to="/listing">
   <v-img
     :src="place.image"
     height="271px"
@@ -9,7 +10,6 @@
       <v-flex class="pa-0">
         <v-card
           class="descriptionWrap rounded-card"
-          href="./listing"
         >
           <v-card-text class="px-2 description pt-2" color="white">
             <div class="body-2 font-weight-thin text-capitalize pt-0">{{ place.category }}</div>
@@ -23,6 +23,7 @@
       </v-flex>
     </v-layout>
   </v-img>
+</nuxt-link>
 </template>
 
 <script>
