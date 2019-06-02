@@ -199,9 +199,30 @@ export default {
     slickOptions: {
       dots: true,
       infinite: false,
-      slidesToScroll: 1,
+      slidesToScroll: 5,
       variableWidth: true,
-      lazyLoad: 'onedemand',
+      focusOnSelect: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToScroll: 5,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToScroll: 1
+          }
+        }
+      ]
     },
     posts: [
       {
@@ -254,9 +275,27 @@ export default {
       },
       {
         category: 'Accommodation',
-        title: 'Pipe Room',
+        title: 'Luxury Tent',
         image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
+        price: '80',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Khmer Cottage',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
+        price: '50',
+        href: '#',
+        per: 'night',
+      },
+      {
+        category: 'Accommodation',
+        title: 'Auto Camping',
+        image:
+          'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
         price: '30',
         href: '#',
         per: 'night',
@@ -272,37 +311,19 @@ export default {
       },
       {
         category: 'Accommodation',
-        title: 'Pipe Room',
+        title: 'Luxury Tent',
         image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
-        price: '30',
+          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
+        price: '80',
         href: '#',
         per: 'night',
       },
       {
         category: 'Accommodation',
-        title: 'Pipe Room',
+        title: 'Khmer Cottage',
         image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
-        price: '30',
-        href: '#',
-        per: 'night',
-      },
-      {
-        category: 'Accommodation',
-        title: 'Pipe Room',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
-        price: '30',
-        href: '#',
-        per: 'night',
-      },
-      {
-        category: 'Accommodation',
-        title: 'Pipe Room',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
-        price: '30',
+          'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
+        price: '50',
         href: '#',
         per: 'night',
       },
