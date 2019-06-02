@@ -4,13 +4,13 @@
       <v-card flat tile>
         <v-card-text class="px-0 linkWrapper">
           <!-- <div class="otherLinks">
-            <v-btn flat class="subheading font-weight-bold text-capitalize">Accommodation</v-btn>
+            <v-btn flat class="subheading font-weight-bold text-capitalize">Accommodation</v-btn> -->
 <!--
             <v-btn flat class="subheading font-weight-bold text-capitalize">Restaurant</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Activities</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Shuttle Bus Booking</v-btn>
 -->
-          </div> -->
+          <!-- </div> -->
           <div class="socialLinks my-2">
 
             <v-btn
