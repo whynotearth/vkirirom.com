@@ -3,21 +3,21 @@
     <v-container>
       <v-card flat tile>
         <v-card-text class="px-0 linkWrapper">
-          <div class="otherLinks">
+          <!-- <div class="otherLinks">
             <v-btn flat class="subheading font-weight-bold text-capitalize">Accommodation</v-btn>
 <!--
             <v-btn flat class="subheading font-weight-bold text-capitalize">Restaurant</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Activities</v-btn>
             <v-btn flat class="subheading font-weight-bold text-capitalize">Shuttle Bus Booking</v-btn>
 -->
-          </div>
+          </div> -->
           <div class="socialLinks my-2">
 
             <v-btn
               class="mx-3"
               icon
             >
-              <a href="https://www.facebook.com/vkirirom/">
+              <a href="https://www.facebook.com/vkirirom/" style="text-decoration: none;">
                 <v-icon size="35px">fab fa-facebook</v-icon>
               </a>
             </v-btn>
@@ -27,7 +27,7 @@
               class="mx-3"
               icon
             >
-              <a href="https://www.instagram.com/vkirirom_pine_resort/">
+              <a href="https://www.instagram.com/vkirirom_pine_resort/" style="text-decoration: none;">
                 <v-icon inverted size="35px">fab fa-instagram</v-icon>
               </a>
             </v-btn>
