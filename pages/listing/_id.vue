@@ -1,5 +1,5 @@
 <template>
-  <h1>Single blog post {{$route.params.id}}</h1>
+  <h1>Listing Page number {{$route.params.id}}</h1>
 </template>
 
 <script>

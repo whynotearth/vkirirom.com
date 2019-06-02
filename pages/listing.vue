@@ -44,6 +44,7 @@
             {{ title }}
           </p>
           <div class="text-xs-left py-4">
+            <h1>Listing Page number {{$route.params.id}}</h1>
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
               <span class="mr-5 font-weight-bold">{{ guestNum }} guests</span>
@@ -385,6 +386,7 @@ export default {
   layout: 'default',
   data() {
     return {
+      id: this.$route.params.id,
       bookDialog: false,
       // images
       FrontendImg,

@@ -1,5 +1,5 @@
 <template>
-<nuxt-link to="/listing">
+<nuxt-link to="/listing/57">
   <v-img
     :src="place.image"
     height="271px"
@@ -29,8 +29,6 @@
 <script>
 export default {
   props: ['place'],
-  methods: {
-  }
 };
 </script>
 
