@@ -45,4 +45,5 @@ export default {
 .search {
   box-shadow: 2px 2px 3px $inputShadow;
 }
+
 </style>

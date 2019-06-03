@@ -4,6 +4,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+ css: [
+  '~/assets/main.css'
+  ],
   head: {
     title: 'vKirirom Pine Resort - Cambodia Resorts',
     meta: [
@@ -33,6 +36,7 @@ module.exports = {
   },
   plugins: [
     '~/plugins/vuetify.js',
+    '~/plugins/vue-resource.js',
     {
       src: '~/plugins/datepicker.js',
       ssr: false,
@@ -75,15 +79,15 @@ module.exports = {
     extractCSS: true,
     vendor: ['axios', 'vuetify', 'vue-slick'],
     extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
+      // // Run ESLint on save
+      // if (ctx.isDev && ctx.isClient) {
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/,
+      //   });
+      // }
       if (ctx.isServer) {
         config.externals = [
           nodeExternals({

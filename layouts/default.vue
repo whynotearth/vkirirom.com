@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <div>
-      <Header />
+      <Header/>
       <v-container grid-list-md text-xs-center fluid class="pa-0">
-        <nuxt />
+        <nuxt/>
       </v-container>
       <Footer class="hidden-sm-and-down"/>
     </div>

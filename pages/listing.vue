@@ -1,6 +1,6 @@
 <template>
   <v-app class="pa-0 listing">
-    <v-container fluid class="pa-0">
+    <v-container-fluid class="pa-0">
       <v-layout row flex class="pa-0 mx-0">
         <v-flex xs12 sm12 md6 class="pa-0 overflow-hidden hidden-sm-and-down">
           <v-img class="image" :src="FrontendImg" aspect-ratio="1.7"></v-img>
@@ -33,7 +33,7 @@
           </v-layout>
         </v-flex>
       </v-layout>
-    </v-container>
+    </v-container-fluid>
     <v-container class="listingContainer">
       <v-layout row flex>
         <v-flex sm12 md8 class="mb-5 pb-5">
@@ -44,6 +44,8 @@
             {{ title }}
           </p>
           <div class="text-xs-left py-4">
+            <h1>{{resort.title}}</h1>
+            <h1>Listing Page number {{$route.params.id}}</h1>
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
               <span class="mr-5 font-weight-bold">{{ guestNum }} guests</span>
@@ -114,7 +116,7 @@
           <ListSection title="Sleep Arrangements" class="py-3">
             <template v-slot:content>
               <v-layout row flex>
-                <v-flex sm4 md5 lg3 v-for="(room, index) in bedRooms" :key="index">
+                <v-flex xs12 v-for="(room, index) in bedRooms" :key="index">
                   <BedRoom
                     :index="index + 1"
                     :double="room.double"
@@ -129,7 +131,7 @@
             <template v-slot:content>
               <v-layout row flex>
                 <v-flex xs12 class="availability">
-                  <p>Update 3 days ago</p>
+                  <p>Updated 3 days ago</p>
                   <Calendar
                     :fullScreenMobile="false"
                     :mode="'range'"
@@ -263,16 +265,94 @@
             </p>
             <Rating :rating="rating" :counter="counter"/>
           </div>
-          <div>
+          <v-dialog v-model="bookDialog">
+          <template v-slot:activator="{ on }">
             <v-btn
               color="cyan darken-4"
               :ripple="false"
               dark
               class="text-capitalize font-weight-bold"
+              v-on="on"
             >
               Book
             </v-btn>
-          </div>
+          </template>
+          <v-card class="pa-4 bookForm">
+            <v-form name="bookForm" action="" method="post" netlify>
+           <input type="hidden" name="bookFor" value="bookForm" />
+              <v-layout row wrap>
+              <v-flex xs12>
+                <p class="subheading">
+                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
+                  <span class="priceDesc">per night</span>
+                </p>
+                <Rating :rating="rating" :counter="counter"/>
+                <v-divider class="pt-2"></v-divider>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field
+                  solo
+                  flat
+                  hide-details
+                  label="Email Address"
+                  name="Email"
+                  append-icon="email"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field
+                  solo
+                  flat
+                  hide-details
+                  label="Name"
+                  name="Name"
+                  append-icon="person_outline"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field
+                  solo
+                  flat
+                  label="Phone"
+                  name="Phone"
+                  hide-details
+                  append-icon="local_phone"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <Calendar
+                  :mode="'range'"
+                  triggerID="bookLeftForm"
+                  name="Calendar"
+                  monthsToShow="1"
+                  :showInput="true"
+                  :cardBorder="true"
+                  :showActionButtons="true"
+                />
+              </v-flex>
+              <v-flex xs12>
+                <v-textarea
+                  solo
+                  flat
+                  hide-details
+                  name="Message"
+                  label="Message"
+                ></v-textarea>
+              </v-flex>
+            </v-layout>
+            <v-btn
+              block
+              color="cyan darken-4"
+              :ripple="false"
+              dark
+              class="text-capitalize font-weight-bold"
+              type="submit"
+            >
+              Book
+            </v-btn>
+            </v-form>
+          </v-card>
+        </v-dialog>
         </div>
       </v-layout>
     </v-container>
@@ -304,9 +384,13 @@ import Calendar from '@/components/common/Calendar';
 import Rating from '@/components/common/Rating';
 
 export default {
+  transition: 'test',
   layout: 'default',
   data() {
     return {
+      id: this.$route.params.id,
+      resort: {},
+      bookDialog: false,
       // images
       FrontendImg,
       Bedroom,
@@ -366,13 +450,19 @@ export default {
       return formattedDates;
     },
   },
+   created() {
+    this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/testslug/').then(function(data){
+      console.log(data);
+      this.resort=data.body;
+    });
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.listingContainer {
-  // padding: 40px 200px;
-}
+// .listingContainer {
+//   padding: 40px 200px;
+// }
 @media screen and (min-width: 1440px) {
   .listingContainer.container {
     max-width: 1200px;
@@ -383,11 +473,11 @@ export default {
     max-width: 1000px;
   }
 }
-@media screen and (max-width: 1200px) {
-  .listingContainer.container {
-    min-width: 900px;
-  }
-}
+// @media screen and (max-width: 1200px) {
+//   .listingContainer.container {
+//     min-width: 900px;
+//   }
+// }
 .image {
   transition: 0.8s ease;
   -webkit-transition: 0.8s ease;
