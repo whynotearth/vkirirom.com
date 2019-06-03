@@ -44,6 +44,7 @@
             {{ title }}
           </p>
           <div class="text-xs-left py-4">
+            <h1>{{resort.title}}</h1>
             <h1>Listing Page number {{$route.params.id}}</h1>
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
