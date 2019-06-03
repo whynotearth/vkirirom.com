@@ -388,6 +388,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      resort: {},
       bookDialog: false,
       // images
       FrontendImg,
@@ -447,6 +448,12 @@ export default {
       }
       return formattedDates;
     },
+  },
+   created() {
+    this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/testslug/').then(function(data){
+      console.log(data);
+      this.resort=data.body;
+    });
   },
 };
 </script>

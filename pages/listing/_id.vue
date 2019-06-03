@@ -1,5 +1,5 @@
 <template>
-  <h1>Listing Page number {{$route.params.id}}</h1>
+
 </template>
 
 <script>

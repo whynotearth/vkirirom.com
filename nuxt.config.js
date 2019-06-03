@@ -36,6 +36,7 @@ module.exports = {
   },
   plugins: [
     '~/plugins/vuetify.js',
+    '~/plugins/vue-resource.js',
     {
       src: '~/plugins/datepicker.js',
       ssr: false,
