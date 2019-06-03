@@ -4,6 +4,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+ css: [
+  '~/assets/main.css'
+  ],
   head: {
     title: 'vKirirom Pine Resort - Cambodia Resorts',
     meta: [

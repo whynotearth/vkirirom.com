@@ -383,6 +383,7 @@ import Calendar from '@/components/common/Calendar';
 import Rating from '@/components/common/Rating';
 
 export default {
+  transition: 'test',
   layout: 'default',
   data() {
     return {
