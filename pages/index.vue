@@ -39,11 +39,11 @@
     <v-container>
     <div class="text-xs-center mt-3 hidden-sm-and-down">
       <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
-      <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+      <!-- <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('top-rated')">See top rated properties</v-btn> -->
     </div>
     <div class="text-xs-center hidden-md-and-up">
       <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
-      <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+      <!-- <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('top-rated')">See top rated properties</v-btn> -->
     </div>
     </v-container>
     <v-container class="container2 pl-4">
@@ -67,7 +67,7 @@
           </template>
         </ListCover>
         </div> -->
-        <ListCover title="Top-rated" id="top-rated">
+        <!-- <ListCover title="Top-rated" id="top-rated">
           <template v-slot:content>
             <v-flex xs12>
               <slick
@@ -81,7 +81,7 @@
               </slick>
             </v-flex>
           </template>
-        </ListCover>
+        </ListCover> -->
         <ListCover title="Accommodation" id="accommodation">
           <template v-slot:content>
             <v-flex xs12>
@@ -97,9 +97,9 @@
             </v-flex>
             </template>
         </ListCover>
-            <v-flex xs12>
+            <!-- <v-flex xs12>
               <ShowAllBtn title="accommodation" />
-            </v-flex>
+            </v-flex> -->
         
 <!--
         <ListCover title="Food & Drinks">
@@ -245,6 +245,7 @@ export default {
         price: '80',
         href: '#',
         per: 'night',
+        slug: 'Luxury-Tent'
       },
       {
         category: 'Accommodation',
@@ -254,15 +255,17 @@ export default {
         price: '50',
         href: '#',
         per: 'night',
+        slug: 'Khmer-Cottage'
       },
       {
         category: 'Accommodation',
-        title: 'Auto Camping',
+        title: 'Camping',
         image:
           'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
         price: '30',
         href: '#',
         per: 'night',
+        slug: 'Camping'
       },
       {
         category: 'Accommodation',
@@ -272,60 +275,37 @@ export default {
         price: '30',
         href: '#',
         per: 'night',
+        slug: 'Pipe-Room'
       },
       {
         category: 'Accommodation',
-        title: 'Luxury Tent',
+        title: 'Bungalow',
         image:
           'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
         price: '80',
         href: '#',
         per: 'night',
+        slug: 'Bungalow'
       },
       {
         category: 'Accommodation',
-        title: 'Khmer Cottage',
+        title: 'Villa Suite',
         image:
           'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
         price: '50',
         href: '#',
         per: 'night',
+        slug: 'Villa-Suite'
       },
       {
         category: 'Accommodation',
-        title: 'Auto Camping',
+        title: 'Villa Jasmine',
         image:
           'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
         price: '30',
         href: '#',
         per: 'night',
-      },
-      {
-        category: 'Accommodation',
-        title: 'Pipe Room',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
-        price: '30',
-        href: '#',
-        per: 'night',
-      },
-      {
-        category: 'Accommodation',
-        title: 'Luxury Tent',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
-        price: '80',
-        href: '#',
-        per: 'night',
-      },
-      {
-        category: 'Accommodation',
-        title: 'Khmer Cottage',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
-        price: '50',
-        href: '#',
-        per: 'night',
+        slug: 'Villa-Jasmine'
       },
     ],
   }),

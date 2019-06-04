@@ -6,13 +6,14 @@
           <v-img class="image" :src="FrontendImg" aspect-ratio="1.7"></v-img>
         </v-flex>
         <v-flex xs12 class="hidden-md-and-up">
-          <v-carousel hide-controls>
+          <!-- <v-carousel hide-controls>
             <v-carousel-item
               v-for="(item,i) in images"
               :key="i"
-              :src="item"
+              :src="resort.img"
             ></v-carousel-item>
-          </v-carousel>
+          </v-carousel> -->
+          <v-img class="image" :src="FrontendImg"></v-img>
         </v-flex>
         <v-flex xs12 sm6 class="pa-0 ma-0 overflow-hidden hidden-sm-and-down">
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
@@ -38,25 +39,33 @@
       <v-layout row flex>
         <v-flex sm12 md8 class="mb-5 pb-5">
           <p class="text-xs-left subheading text-uppercase font-weight-light pt-3">
-            {{ subTitle }}
+            Entire {{resort.title}}
           </p>
           <p class="text-xs-left display-1 text-capitalize font-weight-black pb-3 pt-1">
-            {{ title }}
+            {{resort.title}}
           </p>
           <div class="text-xs-left py-4">
-            <h1>{{resort.title}}</h1>
-            <h1>Listing Page number {{$route.params.id}}</h1>
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
-              <span class="mr-5 font-weight-bold">{{ guestNum }} guests</span>
+              <span class="mr-5 font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.capacity }} guests</span>
               <span class="mr-5 font-weight-bold">{{ bedRooms.length }} bedrooms</span>
-              <span class="font-weight-bold">5 beds</span>
+              <span class="font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.beds }} beds</span>
             </p>
           </div>
           <v-divider></v-divider>
-          <ListSection title="The Space" class="pt-3 pb-5">
+          <ListSection title="The Space" class="pt-3">
             <template v-slot:content>
               <p>{{ theSpaceConent }}</p>
+            </template>
+          </ListSection>
+          <ListSection title="Location">
+            <template v-slot:content>
+              <a href="https://goo.gl/maps/NusquSFKVm2SHrDy7">Go to Location</a>
+            </template>
+          </ListSection>
+          <ListSection title="Getting Around" class="pb-5">
+            <template v-slot:content>
+              <p>{{resort && resort.modules && resort.modules.hotel && resort.modules.hotel.gettingAround}}</p>
             </template>
           </ListSection>
           <v-divider></v-divider>
@@ -388,7 +397,7 @@ export default {
   layout: 'default',
   data() {
     return {
-      id: this.$route.params.id,
+      slug: this.$route.params.id,
       resort: {},
       bookDialog: false,
       // images
@@ -451,7 +460,7 @@ export default {
     },
   },
    created() {
-    this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/testslug/').then(function(data){
+    this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/'+this.slug).then(function(data){
       console.log(data);
       this.resort=data.body;
     });

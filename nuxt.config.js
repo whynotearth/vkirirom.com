@@ -4,6 +4,18 @@ module.exports = {
   /*
   ** Headers of the page
   */
+ generate: {
+   routes: [
+     'listing/Bungalow',
+     'listing/Pipe-Room',
+     'listing/Luxury-Tent',
+     'listing/Khmer-Cottage',
+     'listing/Villa-Suite',
+     'listing/Villa-Jasmine',
+     'listing/Camping',
+   ]
+
+ },
  css: [
   '~/assets/main.css'
   ],
