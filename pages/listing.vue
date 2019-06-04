@@ -49,7 +49,7 @@
               <img class="mr-2" :src="MultiUsers" />
               <span class="mr-5 font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.capacity }} guests</span>
               <span class="mr-5 font-weight-bold">{{ bedRooms.length }} bedrooms</span>
-              <span class="font-weight-bold">5 beds</span>
+              <span class="font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.beds }}</span>
             </p>
           </div>
           <v-divider></v-divider>
