@@ -60,7 +60,7 @@
           </ListSection>
           <ListSection title="Location">
             <template v-slot:content>
-              <link>{{resort && resort.modules && resort.modules.hotel && resort.modules.hotel.location}}</link>
+              <a href="https://goo.gl/maps/NusquSFKVm2SHrDy7">Go to Location</a>
             </template>
           </ListSection>
           <ListSection title="Getting Around" class="pb-5">
