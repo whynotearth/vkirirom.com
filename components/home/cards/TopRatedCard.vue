@@ -1,5 +1,5 @@
 <template>
-<nuxt-link to="/listing/57">
+<nuxt-link to="/listing/Bungalow">
   <v-img
     :src="place.image"
     height="271px"

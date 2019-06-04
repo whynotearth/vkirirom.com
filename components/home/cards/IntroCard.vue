@@ -1,4 +1,5 @@
 <template>
+<nuxt-link v-bind:to="'/listing/' +place.slug" style="text-decoration:none;">
   <v-card flat :min-width="width" class="rounded-card">
     <v-img
       :src="place.image"
@@ -11,6 +12,7 @@
       <div class="subheading font-weight-thin text-lowercase">${{ place.price }} {{ place.per }}</div>
     </v-card-text>
   </v-card>
+</nuxt-link>
 </template>
 
 <script>
