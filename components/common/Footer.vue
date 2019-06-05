@@ -11,10 +11,11 @@
             <v-btn flat class="subheading font-weight-bold text-capitalize">Shuttle Bus Booking</v-btn>
 -->
           <!-- </div> -->
+          <div class="subheading pl-3 my-2">&copy; vKiriom Pine Resort co.Ltd. All Right Reserved.</div>
           <div>
             
           </div>
-          <div class="socialLinks my-2">
+          <div class="socialLinks">
 
             <v-btn
               class="mx-3"
@@ -40,14 +41,13 @@
             </div> -->
           </div>
         </v-card-text>
-        <v-card-actions class="bottomFooter pl-3 mt-2">
-          <div class="subheading">&copy; vKiriom Pine Resort co.Ltd. All Right Reserved.</div>
-          <!-- <div class="language hidden-xs-only">
+        <!-- <v-card-actions class="bottomFooter pl-3 mt-2">
+          <div class="language hidden-xs-only">
             <img :src="Flag"/>
             <div class="subheading">English</div>
-          </div> -->
+          </div>
         </v-card-actions>
-      </v-card>
+      </v-card> -->
     </v-container>
   </v-footer>
 </template>
