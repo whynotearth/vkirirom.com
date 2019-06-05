@@ -67,6 +67,20 @@ module.exports = {
     { src: '~assets/style/scss/base.scss', lang: 'scss' },
   ],
   modules: [
+    ['@nuxtjs/google-tag-manager', 
+      {
+      id: 'GTM-PMXGLXR',
+      layer: 'dataLayer',
+      pageTracking: true,
+      dev: true, // set to false to disable in dev mode
+      query: {
+          // query params...
+          gtm_auth:        '...',
+          gtm_preview:     '...',
+          gtm_cookies_win: '...'
+        },
+      }
+    ]
     // ['@nuxtjs/google-gtag',
     //   {
     //     id: 'UA-137980458-1',
