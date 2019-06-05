@@ -31,21 +31,21 @@
               icon
             >
               <a href="https://www.instagram.com/vkirirom_pine_resort/" style="text-decoration: none;">
-                <v-icon inverted size="35px">fab fa-instagram</v-icon>
+                <v-icon inverted size="35px" color="">fab fa-instagram</v-icon>
               </a>
             </v-btn>
-            <div class="language hidden-sm-and-up">
+            <!-- <div class="language hidden-sm-and-up">
               <img :src="Flag"/>
               <div class="subheading">English</div>
-            </div>
+            </div> -->
           </div>
         </v-card-text>
         <v-card-actions class="bottomFooter pl-3 mt-2">
           <div class="subheading">&copy; vKiriom Pine Resort co.Ltd. All Right Reserved.</div>
-          <div class="language hidden-xs-only">
+          <!-- <div class="language hidden-xs-only">
             <img :src="Flag"/>
             <div class="subheading">English</div>
-          </div>
+          </div> -->
         </v-card-actions>
       </v-card>
     </v-container>
