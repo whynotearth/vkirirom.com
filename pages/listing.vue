@@ -354,7 +354,7 @@
               color="cyan darken-4"
               :ripple="false"
               dark
-              class="text-capitalize font-weight-bold"
+              class="text-capitalize font-weight-bold form-button"
               type="submit"
             >
               Book
