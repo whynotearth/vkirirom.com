@@ -192,7 +192,7 @@
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
             <v-form name="bookForm" action="" method="post" netlify>
-           <input type="hidden" name="bookFor" value="bookForm" />
+           <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading">
@@ -354,7 +354,7 @@
               color="cyan darken-4"
               :ripple="false"
               dark
-              class="text-capitalize font-weight-bold"
+              class="text-capitalize font-weight-bold form-button"
               type="submit"
             >
               Book
