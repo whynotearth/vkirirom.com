@@ -46,8 +46,8 @@
             <img :src="Flag"/>
             <div class="subheading">English</div>
           </div>
-        </v-card-actions>
-      </v-card> -->
+        </v-card-actions> -->
+      </v-card>
     </v-container>
   </v-footer>
 </template>
