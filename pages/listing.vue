@@ -253,6 +253,7 @@
                 <p>Select Dates</p>
                 <v-text-field
                 type="text"
+                name="Date"
                 id="datepicker"
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
@@ -369,15 +370,15 @@
               </v-flex>
               <v-flex xs12>
               <p>Select Dates</p>
-              <!-- <v-btn dark color="cyan darken-4" id="datepicker-trigger" block> -->
+              <v-btn dark color="cyan darken-4" id="datepicker-trigger" block>
                 <input
                 type="date"
                 id="datepicker-trigger"
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
                 >
-              <!-- </v-btn> -->
-              <!-- <v-text-field :value="formatDates(dateOne, dateTwo)" hidden></v-text-field>
+              </v-btn>
+              <v-text-field :value="formatDates(dateOne, dateTwo)" hidden></v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
@@ -386,7 +387,7 @@
                 :date-two="dateTwo"
                 @date-one-selected="val => { dateOne = val }"
                 @date-two-selected="val => { dateTwo = val }"
-              /> -->
+              />
               </v-flex>
               <v-flex xs12>
                 <v-textarea
