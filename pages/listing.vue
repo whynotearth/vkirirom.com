@@ -13,7 +13,7 @@
               :src="resort.img"
             ></v-carousel-item>
           </v-carousel> -->
-          <v-img class="image" :src="FrontendImg"></v-img>
+          <v-img class="image" :src="image1"></v-img>
         </v-flex>
         <v-flex xs12 sm6 class="pa-0 ma-0 overflow-hidden hidden-sm-and-down">
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
@@ -209,24 +209,30 @@
               </v-flex>
               <v-flex xs12>
                 <v-text-field
+                  v-model="name"
                   solo
                   flat
-                  hide-details
-                  label="Email Address"
-                  name="Email"
-                  append-icon="email"
+                  label="Enter your Name"
+                  name="Name"
+                  append-icon="person_outline"
                   required
+                  :error-messages="nameErrors"
+                  @input="$v.name.$touch()"
+                  @blur="$v.name.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field
+                  v-model="email"
                   solo
                   flat
-                  hide-details
-                  label="Name"
-                  name="Name"
-                  append-icon="person_outline"
+                  label="Enter your e-mail address"
+                  name="E-mail"
+                  append-icon="email"
                   required
+                  :error-messages="emailErrors"
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -235,7 +241,6 @@
                   flat
                   label="Phone"
                   name="Phone"
-                  hide-details
                   append-icon="local_phone"
                   required
                 ></v-text-field>
@@ -402,14 +407,26 @@ import BedRoom from '@/components/common/card/BedRoom';
 import Calendar from '@/components/common/Calendar';
 import Rating from '@/components/common/Rating';
 
+
+import { validationMixin } from 'vuelidate'
+import { required, maxLength, email } from 'vuelidate/lib/validators'
+
 export default {
+  mixins: [validationMixin],
+  validations: {
+      name: { required },
+      email: { required, email },
+      phone: { required },
+    },
   transition: 'test',
   layout: 'default',
   data() {
     return {
+      name: '',
+      email: '',
       slug: this.$route.params.id,
       resort: {},
-      // image1: this.resort.images[0].url,
+      image1: this.resort.images[0].url,
       bookDialog: false,
       // images
       FrontendImg,
@@ -476,6 +493,21 @@ export default {
       console.log(this.image1)
     });
   },
+  computed: {
+    nameErrors () {
+        const errors = []
+        if (!this.$v.name.$dirty) return errors
+        !this.$v.name.required && errors.push('Name is required.')
+        return errors
+      },
+      emailErrors () {
+        const errors = []
+        if (!this.$v.email.$dirty) return errors
+        !this.$v.email.email && errors.push('Must be valid e-mail')
+        !this.$v.email.required && errors.push('E-mail is required')
+        return errors
+      }
+  }
 };
 </script>
 

@@ -47,6 +47,7 @@ module.exports = {
     ],
   },
   plugins: [
+    '~/plugins/vuelidate.js',
     '~/plugins/vuetify.js',
     '~/plugins/vue-resource.js',
     {
