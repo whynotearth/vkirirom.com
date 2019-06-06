@@ -281,6 +281,7 @@
               block
               color="cyan darken-4"
               dark
+              :ripple="false"
               class="text-capitalize font-weight-bold"
               type="submit"
               @click="validate"
@@ -398,6 +399,7 @@
               type="submit"
               @click="validate"
               :disabled="valid"
+              :ripple="false"
             >
               Book
             </v-btn>
