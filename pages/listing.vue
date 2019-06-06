@@ -56,7 +56,7 @@
           <v-divider></v-divider>
           <ListSection title="Description" class="pt-3">
             <template v-slot:content>
-              <p>{{ theSpaceConent }}</p>
+              <p>{{resort.h2}}</p>
             </template>
           </ListSection>
           <ListSection title="Location">
@@ -196,13 +196,13 @@
         </v-flex>
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify>
+            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" lazy-validation>
            <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading text-xs-center pb-2">
-                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-                  <span class="priceDesc">per night</span>
+                  <span class="priceLetter font-weight-bold">&dollar;{{ resort.ctaText }}</span>
+                  <span class="priceDesc"> per night</span>
                 </p>
                 <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
@@ -216,9 +216,7 @@
                   name="Name"
                   append-icon="person_outline"
                   required
-                  :error-messages="nameErrors"
-                  @input="$v.name.$touch()"
-                  @blur="$v.name.$touch()"
+                  :rules="nameRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -230,9 +228,6 @@
                   name="E-mail"
                   append-icon="email"
                   required
-                  :error-messages="emailErrors"
-                  @input="$v.email.$touch()"
-                  @blur="$v.email.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -244,9 +239,7 @@
                   name="Phone"
                   append-icon="local_phone"
                   required
-                  :error-messages="phoneErrors"
-                  @input="$v.phone.$touch()"
-                  @blur="$v.phone.$touch()"
+                  :rules="phoneRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -257,6 +250,7 @@
                 name="Date"
                 id="datepicker"
                 placeholder="Select dates"
+                :rules="dateRules"
                 :value="formatDates(dateOne, dateTwo)"
                 >
                 </v-text-field>
@@ -286,10 +280,12 @@
             <v-btn
               block
               color="cyan darken-4"
-              :ripple="false"
               dark
+              :ripple="false"
               class="text-capitalize font-weight-bold"
               type="submit"
+              @click="validate"
+              :disabled="!valid"
             >
               Book
             </v-btn>
@@ -299,8 +295,8 @@
         <div id="bookBottom" class="hidden-md-and-up book-bottom px-5">
           <div>
             <p class="subheading text-xs-center pb-2">
-              <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-              <span class="priceDesc">per night</span>
+              <span class="priceLetter font-weight-bold">&dollar;{{resort.ctaText}}</span>
+              <span class="priceDesc"> per night</span>
             </p>
             <!-- <Rating :rating="rating" :counter="counter"/> -->
           </div>
@@ -316,14 +312,14 @@
               Book
             </v-btn>
           </template>
-          <v-card class="pa-4 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify>
-           <input type="hidden" name="bookFor" value="bookForm" />
+          <v-card class="pa-4 bookForm" width="100%" height="100%">
+            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid">
+           <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading text-xs-center pb-2">
-                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-                  <span class="priceDesc">per night</span>
+                  <span class="priceLetter font-weight-bold">&dollar;{{ resort.ctaText }} </span>
+                  <span class="priceDesc"> per night</span>
                 </p>
                 <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
@@ -337,9 +333,7 @@
                   name="Name"
                   append-icon="person_outline"
                   required
-                  :error-messages="nameErrors"
-                  @input="$v.name.$touch()"
-                  @blur="$v.name.$touch()"
+                  :rules="nameRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -351,9 +345,7 @@
                   name="E-mail"
                   append-icon="email"
                   required
-                  :error-messages="emailErrors"
-                  @input="$v.email.$touch()"
-                  @blur="$v.email.$touch()"
+                  :rules="emailRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -365,9 +357,7 @@
                   name="Phone"
                   append-icon="local_phone"
                   required
-                  :error-messages="phoneErrors"
-                  @input="$v.phone.$touch()"
-                  @blur="$v.phone.$touch()"
+                  :rules="phoneRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -378,11 +368,13 @@
                 name="Date"
                 id="datepicker-trigger"
                 placeholder="Select dates"
+                :rules="dateRules"
                 :value="formatDates(dateOne, dateTwo)"
                 ></v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
+                style="width:100%; height:100%;"
                 :fullscreen-mobile="true"
                 :date-one="dateOne"
                 :date-two="dateTwo"
@@ -403,10 +395,10 @@
             <v-btn
               block
               color="cyan darken-4"
-              :ripple="false"
               dark
               class="text-capitalize font-weight-bold form-button"
               type="submit"
+              :ripple="false"
             >
               Book
             </v-btn>
@@ -458,6 +450,20 @@ export default {
   layout: 'default',
   data() {
     return {
+      valid: true,
+      nameRules: [
+        v => !!v || 'Name is required',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
+      phoneRules: [
+        v => !!v || 'Phone no. is required',
+      ],
+      dateRules: [
+        v => !!v || 'Dates are required',
+      ],
       name: '',
       email: '',
       phone: '',
@@ -514,6 +520,11 @@ export default {
     Rating,
   },
   methods: {
+    validate () {
+        if (this.$refs.form.validate()) {
+          this.snackbar = true
+        }
+      },
     formatDates(dateOne, dateTwo) {
       let formattedDates = '';
       if (dateOne) {
@@ -524,8 +535,11 @@ export default {
       }
       return formattedDates;
     },
+    submit () {
+        this.$v.$touch()
+      },
   },
-   created() {
+created() {
     this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/'+this.slug).then(function(data){
       this.resort=data.body;
     });
