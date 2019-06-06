@@ -56,7 +56,7 @@
           <v-divider></v-divider>
           <ListSection title="Description" class="pt-3">
             <template v-slot:content>
-              <p>{{ theSpaceConent }}</p>
+              <p>{{resort.h2}}</p>
             </template>
           </ListSection>
           <ListSection title="Location">
@@ -201,8 +201,8 @@
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading text-xs-center pb-2">
-                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-                  <span class="priceDesc">per night</span>
+                  <span class="priceLetter font-weight-bold">&dollar;{{ resort.ctaText }}</span>
+                  <span class="priceDesc"> per night</span>
                 </p>
                 <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
@@ -295,8 +295,8 @@
         <div id="bookBottom" class="hidden-md-and-up book-bottom px-5">
           <div>
             <p class="subheading text-xs-center pb-2">
-              <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-              <span class="priceDesc">per night</span>
+              <span class="priceLetter font-weight-bold">&dollar;{{resort.ctaText}}</span>
+              <span class="priceDesc"> per night</span>
             </p>
             <!-- <Rating :rating="rating" :counter="counter"/> -->
           </div>
@@ -318,8 +318,8 @@
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading text-xs-center pb-2">
-                  <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
-                  <span class="priceDesc">per night</span>
+                  <span class="priceLetter font-weight-bold">&dollar;{{ resort.ctaText }} </span>
+                  <span class="priceDesc"> per night</span>
                 </p>
                 <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
