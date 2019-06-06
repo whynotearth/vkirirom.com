@@ -380,6 +380,7 @@
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
                 ></v-text-field>
+                </v-flex>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
@@ -389,7 +390,6 @@
                 @date-one-selected="val => { dateOne = val }"
                 @date-two-selected="val => { dateTwo = val }"
               />
-              </v-flex>
               <v-flex xs12>
                 <v-textarea
                   solo
@@ -407,6 +407,7 @@
               dark
               class="text-capitalize font-weight-bold form-button"
               type="submit"
+              @click="submit()"
             >
               Book
             </v-btn>
@@ -524,8 +525,11 @@ export default {
       }
       return formattedDates;
     },
+    submit () {
+        this.$v.$touch()
+      },
   },
-   created() {
+created() {
     this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/'+this.slug).then(function(data){
       this.resort=data.body;
     });
