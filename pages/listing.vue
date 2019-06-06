@@ -312,9 +312,9 @@
               Book
             </v-btn>
           </template>
-          <v-card class="pa-4 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" lazy-validation>
-           <input type="hidden" name="bookFor" value="bookForm" />
+          <v-card class="pa-4 bookForm" width="100%" height="100%">
+            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid">
+           <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
                 <p class="subheading text-xs-center pb-2">
