@@ -212,7 +212,7 @@
                   v-model="name"
                   solo
                   flat
-                  label="Enter your Name"
+                  Placeholder="Enter your Name"
                   name="Name"
                   append-icon="person_outline"
                   required
@@ -226,7 +226,7 @@
                   v-model="email"
                   solo
                   flat
-                  label="Enter your e-mail address"
+                  Placeholder="Enter e-mail address"
                   name="E-mail"
                   append-icon="email"
                   required
@@ -240,7 +240,7 @@
                   solo
                   flat
                   v-model="phone"
-                  label="Phone"
+                  Placeholder="Phone"
                   name="Phone"
                   append-icon="local_phone"
                   required
@@ -250,14 +250,16 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <p>Select Dates</p>
                 <v-text-field
+                solo
+                flat
                 type="text"
                 name="Date"
                 id="datepicker"
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
-                ></v-text-field>
+                >
+                </v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker'"
                 :mode="'range'"
@@ -276,7 +278,7 @@
                   flat
                   hide-details
                   name="Message"
-                  label="Message"
+                  Placeholder="Message"
                   required
                 ></v-textarea>
               </v-flex>
@@ -331,7 +333,7 @@
                   v-model="name"
                   solo
                   flat
-                  label="Enter your Name"
+                  Placeholder="Enter your Name"
                   name="Name"
                   append-icon="person_outline"
                   required
@@ -345,7 +347,7 @@
                   v-model="email"
                   solo
                   flat
-                  label="Enter your e-mail address"
+                  Placeholder="Enter e-mail address"
                   name="E-mail"
                   append-icon="email"
                   required
@@ -359,7 +361,7 @@
                   solo
                   flat
                   v-model="phone"
-                  label="Phone"
+                  Placeholder="Phone"
                   name="Phone"
                   append-icon="local_phone"
                   required
@@ -369,16 +371,15 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-              <p>Select Dates</p>
-              <v-btn dark color="cyan darken-4" id="datepicker-trigger" block>
-                <input
-                type="date"
+                <v-text-field
+                solo
+                flat
+                type="text"
+                name="Date"
                 id="datepicker-trigger"
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
-                >
-              </v-btn>
-              <v-text-field :value="formatDates(dateOne, dateTwo)" hidden></v-text-field>
+                ></v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
@@ -395,7 +396,7 @@
                   flat
                   hide-details
                   name="Message"
-                  label="Message"
+                  Placeholder="Message"
                 ></v-textarea>
               </v-flex>
             </v-layout>
