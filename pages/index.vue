@@ -38,12 +38,12 @@
     </v-container>
     <!-- <v-container>
     <div class="text-xs-center mt-3 hidden-sm-and-down">
-      <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
-      <v-btn dark color="cyan darken-4" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+      <v-btn dark color="#3D7A57" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
+      <v-btn dark color="#3D7A57" class="font-weight-bold text-capitalize" style="width:48%; height:6vh;" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
     </div>
     <div class="text-xs-center hidden-md-and-up">
-      <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
-      <v-btn dark block color="cyan darken-4" class="font-weight-bold text-capitalize" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
+      <v-btn dark block color="#3D7A57" class="font-weight-bold text-capitalize" @click="scrollMeTo('accommodation')">Browse Accommodation</v-btn>
+      <v-btn dark block color="#3D7A57" class="font-weight-bold text-capitalize" @click="scrollMeTo('top-rated')">See top rated properties</v-btn>
     </div>
     </v-container> -->
     <v-container class="container2 pl-4">
@@ -197,7 +197,7 @@ export default {
       // Livingroom,
     ],
     slickOptions: {
-      dots: true,
+      dots: false,
       infinite: false,
       slidesToScroll: 5,
       variableWidth: true,
@@ -207,7 +207,7 @@ export default {
           breakpoint: 1024,
           settings: {
             slidesToScroll: 5,
-            dots: true
+            dots: false
           }
         },
         {

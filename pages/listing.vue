@@ -279,7 +279,7 @@
             </v-layout>
             <v-btn
               block
-              color="cyan darken-4"
+              color="#3D7A57"
               dark
               :ripple="false"
               class="text-capitalize font-weight-bold"
@@ -303,7 +303,7 @@
           <v-dialog v-model="bookDialog">
           <template v-slot:activator="{ on }">
             <v-btn
-              color="cyan darken-4"
+              color="#3D7A57"
               :ripple="false"
               dark
               class="text-capitalize font-weight-bold"
@@ -394,7 +394,7 @@
             </v-layout>
             <v-btn
               block
-              color="cyan darken-4"
+              color="#3D7A57"
               dark
               class="text-capitalize font-weight-bold form-button"
               type="submit"
@@ -616,7 +616,6 @@ created() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(0,0,0,0.12);
   margin-left: -12px;
   z-index: 5;
 }

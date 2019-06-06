@@ -25,8 +25,7 @@ export default {
 <style lang="scss" scoped>
 
 .v-toolbar {
-  background-color: #fff;
+  background-color: #191C21;
   box-shadow: none;
-  border: 1px solid rgba(61, 78, 97, 0.2);
 }
 </style>

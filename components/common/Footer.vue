@@ -22,7 +22,7 @@
               icon
             >
               <a href="https://www.facebook.com/vkirirom/" style="text-decoration: none;">
-                <v-icon size="35px">fab fa-facebook</v-icon>
+                <v-icon size="35px" color="#95989D">fab fa-facebook</v-icon>
               </a>
             </v-btn>
 
@@ -32,7 +32,7 @@
               icon
             >
               <a href="https://www.instagram.com/vkirirom_pine_resort/" style="text-decoration: none;">
-                <v-icon inverted size="35px" color="">fab fa-instagram</v-icon>
+                <v-icon inverted size="35px" color="#95989D">fab fa-instagram</v-icon>
               </a>
             </v-btn>
             <!-- <div class="language hidden-sm-and-up">
@@ -52,6 +52,7 @@
   </v-footer>
 </template>
 
+<!-- Removed until language support is added
 <script>
 import Flag from '@/assets/img/flagUS.svg';
 
@@ -63,11 +64,11 @@ export default {
   },
 };
 </script>
+-->
 
 <style lang="scss" scoped>
 footer.v-footer {
-  background: white;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: #191C21;
 }
 .linkWrapper {
   display: flex;
@@ -98,6 +99,7 @@ footer.v-footer {
     flex-direction: column;
   }
 }
+    
 .language {
   display: flex;
   align-items: center;
