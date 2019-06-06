@@ -196,7 +196,7 @@
         </v-flex>
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify>
+            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" lazy-validation>
            <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
@@ -216,9 +216,7 @@
                   name="Name"
                   append-icon="person_outline"
                   required
-                  :error-messages="nameErrors"
-                  @input="$v.name.$touch()"
-                  @blur="$v.name.$touch()"
+                  :rules="nameRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -230,9 +228,6 @@
                   name="E-mail"
                   append-icon="email"
                   required
-                  :error-messages="emailErrors"
-                  @input="$v.email.$touch()"
-                  @blur="$v.email.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -244,9 +239,7 @@
                   name="Phone"
                   append-icon="local_phone"
                   required
-                  :error-messages="phoneErrors"
-                  @input="$v.phone.$touch()"
-                  @blur="$v.phone.$touch()"
+                  :rules="phoneRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -257,6 +250,7 @@
                 name="Date"
                 id="datepicker"
                 placeholder="Select dates"
+                :rules="dateRules"
                 :value="formatDates(dateOne, dateTwo)"
                 >
                 </v-text-field>
@@ -286,10 +280,11 @@
             <v-btn
               block
               color="cyan darken-4"
-              :ripple="false"
               dark
               class="text-capitalize font-weight-bold"
               type="submit"
+              @click="validate"
+              :disabled="!valid"
             >
               Book
             </v-btn>
@@ -317,7 +312,7 @@
             </v-btn>
           </template>
           <v-card class="pa-4 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify>
+            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" lazy-validation>
            <input type="hidden" name="bookFor" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
@@ -337,9 +332,7 @@
                   name="Name"
                   append-icon="person_outline"
                   required
-                  :error-messages="nameErrors"
-                  @input="$v.name.$touch()"
-                  @blur="$v.name.$touch()"
+                  :rules="nameRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -351,9 +344,7 @@
                   name="E-mail"
                   append-icon="email"
                   required
-                  :error-messages="emailErrors"
-                  @input="$v.email.$touch()"
-                  @blur="$v.email.$touch()"
+                  :rules="emailRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -365,9 +356,7 @@
                   name="Phone"
                   append-icon="local_phone"
                   required
-                  :error-messages="phoneErrors"
-                  @input="$v.phone.$touch()"
-                  @blur="$v.phone.$touch()"
+                  :rules="phoneRules"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -378,6 +367,7 @@
                 name="Date"
                 id="datepicker-trigger"
                 placeholder="Select dates"
+                :rules="dateRules"
                 :value="formatDates(dateOne, dateTwo)"
                 ></v-text-field>
                 </v-flex>
@@ -403,11 +393,11 @@
             <v-btn
               block
               color="cyan darken-4"
-              :ripple="false"
               dark
               class="text-capitalize font-weight-bold form-button"
               type="submit"
-              @click="submit()"
+              @click="validate"
+              :disabled="valid"
             >
               Book
             </v-btn>
@@ -459,6 +449,20 @@ export default {
   layout: 'default',
   data() {
     return {
+      valid: true,
+      nameRules: [
+        v => !!v || 'Name is required',
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ],
+      phoneRules: [
+        v => !!v || 'Phone no. is required',
+      ],
+      dateRules: [
+        v => !!v || 'Dates are required',
+      ],
       name: '',
       email: '',
       phone: '',
@@ -515,6 +519,11 @@ export default {
     Rating,
   },
   methods: {
+    validate () {
+        if (this.$refs.form.validate()) {
+          this.snackbar = true
+        }
+      },
     formatDates(dateOne, dateTwo) {
       let formattedDates = '';
       if (dateOne) {
