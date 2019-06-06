@@ -13,7 +13,7 @@
               :src="resort.img"
             ></v-carousel-item>
           </v-carousel> -->
-          <v-img class="image" :src="image1"></v-img>
+          <!-- <v-img class="image" v-if="resort.images.length > 0" :src="resort.images[0].url"></v-img> -->
         </v-flex>
         <v-flex xs12 sm6 class="pa-0 ma-0 overflow-hidden hidden-sm-and-down">
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
@@ -239,10 +239,14 @@
                 <v-text-field
                   solo
                   flat
+                  v-model="phone"
                   label="Phone"
                   name="Phone"
                   append-icon="local_phone"
                   required
+                  :error-messages="phoneErrors"
+                  @input="$v.phone.$touch()"
+                  @blur="$v.phone.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -409,7 +413,7 @@ import Rating from '@/components/common/Rating';
 
 
 import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
+import { required, maxLength, email, } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
@@ -424,9 +428,9 @@ export default {
     return {
       name: '',
       email: '',
+      phone: '',
       slug: this.$route.params.id,
       resort: {},
-      image1: this.resort.images[0].url,
       bookDialog: false,
       // images
       FrontendImg,
@@ -500,13 +504,20 @@ export default {
         !this.$v.name.required && errors.push('Name is required.')
         return errors
       },
-      emailErrors () {
-        const errors = []
-        if (!this.$v.email.$dirty) return errors
-        !this.$v.email.email && errors.push('Must be valid e-mail')
-        !this.$v.email.required && errors.push('E-mail is required')
-        return errors
-      }
+    emailErrors () {
+      const errors = []
+      if (!this.$v.email.$dirty) return errors
+      !this.$v.email.email && errors.push('Must be valid e-mail')
+      !this.$v.email.required && errors.push('E-mail is required')
+      return errors
+    },
+    phoneErrors() {
+      const errors = []
+      if (!this.$v.phone.$dirty) return errors
+      !this.$v.phone.required && errors.push('Phone Number is required')
+      return errors
+    },
+    // image1() { return this.resort.images[0].url;}
   }
 };
 </script>
