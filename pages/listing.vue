@@ -48,12 +48,13 @@
             <p class="subDescription">
               <img class="mr-2" :src="MultiUsers" />
               <span class="mr-5 font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.capacity }} guests</span>
-              <span class="mr-5 font-weight-bold">{{ bedRooms.length }} bedrooms</span>
-              <span class="font-weight-bold">{{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.beds }} beds</span>
+              <!-- <span class="mr-5 font-weight-bold">{{ bedRooms.length }} bedrooms</span> -->
+              <span class="font-weight-bold mr-5">Beds: {{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.beds[0] && resort.modules.hotel.beds[0].count }} </span>
+              <span class="font-weight-bold"> Type: {{ resort && resort.modules && resort.modules.hotel && resort.modules.hotel.beds[0] && resort.modules.hotel.beds[0].type }} </span>
             </p>
           </div>
           <v-divider></v-divider>
-          <ListSection title="The Space" class="pt-3">
+          <ListSection title="Description" class="pt-3">
             <template v-slot:content>
               <p>{{ theSpaceConent }}</p>
             </template>
@@ -61,6 +62,11 @@
           <ListSection title="Location">
             <template v-slot:content>
               <a href="https://goo.gl/maps/NusquSFKVm2SHrDy7">Go to Location</a>
+            </template>
+          </ListSection>
+          <ListSection title="Spaces" class="pt-3">
+            <template v-slot:content>
+              <p>{{resort && resort.modules && resort.modules.hotel && resort.modules.hotel.spaces[0]}}</p>
             </template>
           </ListSection>
           <ListSection title="Getting Around" class="pb-5">
@@ -154,10 +160,9 @@
               </v-layout>
             </template>
           </ListSection>
-          <p class="title font-weight-bold pt-4">Policies</p>
-          <ListSection title="Villa Rules" class="py-3">
+          <ListSection title="Rules" class="py-3">
             <template v-slot:content>
-              <p>No smoking</p>
+              <p>{{resort && resort.modules && resort.modules.hotel && resort.modules.hotel.rules[0]}}</p>
             </template>
           </ListSection>
           <v-divider></v-divider>
@@ -210,6 +215,7 @@
                   label="Email Address"
                   name="Email"
                   append-icon="email"
+                  required
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -220,6 +226,7 @@
                   label="Name"
                   name="Name"
                   append-icon="person_outline"
+                  required
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -230,6 +237,7 @@
                   name="Phone"
                   hide-details
                   append-icon="local_phone"
+                  required
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
@@ -241,6 +249,7 @@
                   :showInput="true"
                   :cardBorder="true"
                   :showActionButtons="true"
+                  required
                 />
               </v-flex>
               <v-flex xs12>
@@ -250,6 +259,7 @@
                   hide-details
                   name="Message"
                   label="Message"
+                  required
                 ></v-textarea>
               </v-flex>
             </v-layout>
@@ -399,6 +409,7 @@ export default {
     return {
       slug: this.$route.params.id,
       resort: {},
+      // image1: this.resort.images[0].url,
       bookDialog: false,
       // images
       FrontendImg,
@@ -461,8 +472,8 @@ export default {
   },
    created() {
     this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/'+this.slug).then(function(data){
-      console.log(data);
       this.resort=data.body;
+      console.log(this.image1)
     });
   },
 };
