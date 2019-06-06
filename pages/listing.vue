@@ -262,7 +262,7 @@
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker'"
                 :mode="'range'"
-                :fullscreen-mobile="true"
+                :fullscreen-mobile="false"
                 :date-one="dateOne"
                 :date-two="dateTwo"
                 @date-one-selected="val => { dateOne = val }"

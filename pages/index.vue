@@ -239,9 +239,19 @@ export default {
     places: [
       {
         category: 'Accommodation',
+        title: 'Bungalow',
+        image:
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801041/Bungalow_1_ledef7.jpg',
+        price: '80',
+        href: '#',
+        per: 'night',
+        slug: 'Bungalow'
+      },
+      {
+        category: 'Accommodation',
         title: 'Luxury Tent',
         image:
-          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801013/Luxury_Tent_1_e755jg.jpg',
         price: '80',
         href: '#',
         per: 'night',
@@ -261,7 +271,7 @@ export default {
         category: 'Accommodation',
         title: 'Camping',
         image:
-          'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801033/Camping_1_mqqhyf.jpg',
         price: '30',
         href: '#',
         per: 'night',
@@ -271,7 +281,7 @@ export default {
         category: 'Accommodation',
         title: 'Pipe Room',
         image:
-          'https://www.vkirirom.com/images/detailsimage/piperoom/piperoom5.JPG',
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800987/Pipe_Room_1_lheut2.jpg',
         price: '30',
         href: '#',
         per: 'night',
@@ -279,19 +289,9 @@ export default {
       },
       {
         category: 'Accommodation',
-        title: 'Bungalow',
-        image:
-          'https://www.vkirirom.com/images/detailsimage/bungalow/bungalow2.jpg',
-        price: '80',
-        href: '#',
-        per: 'night',
-        slug: 'Bungalow'
-      },
-      {
-        category: 'Accommodation',
         title: 'Villa Suite',
         image:
-          'https://www.vkirirom.com/images/detailsimage/khmercottage/khmercottage1.JPG',
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800960/Villa_Suite_1_tsmo2b.jpg',
         price: '50',
         href: '#',
         per: 'night',
@@ -301,7 +301,7 @@ export default {
         category: 'Accommodation',
         title: 'Villa Jasmine',
         image:
-          'https://www.vkirirom.com/images/detailsimage/camping/camping4.JPG',
+          'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800971/Villa_Jasmine_1_tqe47i.jpg',
         price: '30',
         href: '#',
         per: 'night',
