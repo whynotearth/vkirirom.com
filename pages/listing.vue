@@ -3,7 +3,7 @@
     <v-container-fluid class="pa-0">
       <v-layout row flex class="pa-0 mx-0">
         <v-flex xs12 sm12 md6 class="pa-0 overflow-hidden hidden-sm-and-down">
-          <v-img class="image" :src="FrontendImg" aspect-ratio="1.7"></v-img>
+          <v-img class="image" v-if="resort.images.length > 0" :src="resort.featuredImage" aspect-ratio="1.7"></v-img>
         </v-flex>
         <v-flex xs12 class="hidden-md-and-up">
           <!-- <v-carousel hide-controls>
@@ -13,23 +13,23 @@
               :src="resort.img"
             ></v-carousel-item>
           </v-carousel> -->
-          <!-- <v-img class="image" v-if="resort.images.length > 0" :src="resort.images[0].url"></v-img> -->
+          <v-img class="image" v-if="resort.images.length > 0" :src="resort.featuredImage"></v-img>
         </v-flex>
         <v-flex xs12 sm6 class="pa-0 ma-0 overflow-hidden hidden-sm-and-down">
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
             <v-flex xs12 sm6 class="pa-0 overflow-hidden">
-              <v-img class="image ma-0 pa-0" :src="Kitchen" aspect-ratio="1.7"></v-img>
+              <v-img class="image ma-0 pa-0" v-if="resort.images.length > 0" :src="resort.images[0].url" aspect-ratio="1.7"></v-img>
             </v-flex>
             <v-flex xs12 sm6 class="pa-0 overflow-hidden">
-              <v-img class="image" :src="Bedroom" aspect-ratio="1.7"></v-img>
+              <v-img class="image" v-if="resort.images.length > 0" :src="resort.images[1].url" aspect-ratio="1.7"></v-img>
             </v-flex>
           </v-layout>
           <v-layout row flex class="pa-0 ma-0 overflow-hidden">
             <v-flex xs12 sm6 class="pa-0 overflow-hidden">
-              <v-img class="image" :src="Bedroom2" aspect-ratio="1.7"></v-img>
+              <v-img class="image" v-if="resort.images.length > 0" :src="resort.images[2].url" aspect-ratio="1.7"></v-img>
             </v-flex>
             <v-flex xs12 sm6 class="pa-0 overflow-hidden">
-              <v-img class="image" :src="Livingroom" aspect-ratio="1.7"></v-img>
+              <v-img class="image" v-if="resort.images.length > 0" :src="resort.images[3].url" aspect-ratio="1.7"></v-img>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -96,7 +96,7 @@
                 </v-flex>
                 <v-flex xs4 md2></v-flex>
               </v-layout>
-              <v-expand-transition>
+              <!-- <v-expand-transition>
                 <div v-show="showAmenities">
                   <v-layout row wrap>
                     <v-flex xs8 md10>
@@ -118,15 +118,15 @@
                     <v-flex xs4 md2></v-flex>
                   </v-layout>
                 </div>
-              </v-expand-transition>
+              </v-expand-transition> -->
             </template>
           </ListSection>
-          <a
+          <!-- <a
             class="btnMore"
             @click.prevent="showAmenities= !showAmenities"
           >
             {{ showAmenities ? 'Hide Amenities' : 'Show All Amenities' }}
-          </a>
+          </a> -->
           <v-divider class="mt-3"></v-divider>
           <ListSection title="Sleep Arrangements" class="py-3">
             <template v-slot:content>
@@ -200,11 +200,11 @@
            <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
-                <p class="subheading">
+                <p class="subheading text-xs-center pb-2">
                   <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
                   <span class="priceDesc">per night</span>
                 </p>
-                <Rating :rating="rating" :counter="counter"/>
+                <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
               </v-flex>
               <v-flex xs12>
@@ -250,16 +250,24 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <Calendar
-                  :mode="'range'"
-                  triggerID="bookLeftForm"
-                  name="Calendar"
-                  monthsToShow="1"
-                  :showInput="true"
-                  :cardBorder="true"
-                  :showActionButtons="true"
-                  required
-                />
+                <p>Select Dates</p>
+              <v-btn dark color="cyan darken-4" id="datepicker" block>
+                <input
+                type="text"
+                id="datepicker"
+                placeholder="Select dates"
+                :value="formatDates(dateOne, dateTwo)"
+                >
+              </v-btn>
+              <AirbnbStyleDatepicker
+                :trigger-element-id="'datepicker'"
+                :mode="'range'"
+                :fullscreen-mobile="true"
+                :date-one="dateOne"
+                :date-two="dateTwo"
+                @date-one-selected="val => { dateOne = val }"
+                @date-two-selected="val => { dateTwo = val }"
+              />
               </v-flex>
               <v-flex xs12>
                 <v-textarea
@@ -287,11 +295,11 @@
         </v-flex>
         <div id="bookBottom" class="hidden-md-and-up book-bottom px-5">
           <div>
-            <p class="subheading">
+            <p class="subheading text-xs-center pb-2">
               <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
               <span class="priceDesc">per night</span>
             </p>
-            <Rating :rating="rating" :counter="counter"/>
+            <!-- <Rating :rating="rating" :counter="counter"/> -->
           </div>
           <v-dialog v-model="bookDialog">
           <template v-slot:activator="{ on }">
@@ -310,53 +318,74 @@
            <input type="hidden" name="bookFor" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
-                <p class="subheading">
+                <p class="subheading text-xs-center pb-2">
                   <span class="priceLetter font-weight-bold">&dollar;{{ pricePerNight }}</span>
                   <span class="priceDesc">per night</span>
                 </p>
-                <Rating :rating="rating" :counter="counter"/>
+                <!-- <Rating :rating="rating" :counter="counter"/> -->
                 <v-divider class="pt-2"></v-divider>
               </v-flex>
               <v-flex xs12>
                 <v-text-field
+                  v-model="name"
                   solo
                   flat
-                  hide-details
-                  label="Email Address"
-                  name="Email"
-                  append-icon="email"
-                ></v-text-field>
-              </v-flex>
-              <v-flex xs12>
-                <v-text-field
-                  solo
-                  flat
-                  hide-details
-                  label="Name"
+                  label="Enter your Name"
                   name="Name"
                   append-icon="person_outline"
+                  required
+                  :error-messages="nameErrors"
+                  @input="$v.name.$touch()"
+                  @blur="$v.name.$touch()"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field
+                  v-model="email"
+                  solo
+                  flat
+                  label="Enter your e-mail address"
+                  name="E-mail"
+                  append-icon="email"
+                  required
+                  :error-messages="emailErrors"
+                  @input="$v.email.$touch()"
+                  @blur="$v.email.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field
                   solo
                   flat
+                  v-model="phone"
                   label="Phone"
                   name="Phone"
-                  hide-details
                   append-icon="local_phone"
+                  required
+                  :error-messages="phoneErrors"
+                  @input="$v.phone.$touch()"
+                  @blur="$v.phone.$touch()"
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <Calendar
-                  :mode="'range'"
-                  triggerID="bookLeftForm"
-                  name="Calendar"
-                  monthsToShow="1"
-                  :showInput="true"
-                  :cardBorder="true"
-                  :showActionButtons="true"
-                />
+              <p>Select Dates</p>
+              <v-btn dark color="cyan darken-4" id="datepicker-trigger" block>
+                <input
+                type="text"
+                id="datepicker-trigger"
+                placeholder="Select dates"
+                :value="formatDates(dateOne, dateTwo)"
+                >
+              </v-btn>
+              <AirbnbStyleDatepicker
+                :trigger-element-id="'datepicker-trigger'"
+                :mode="'range'"
+                :fullscreen-mobile="true"
+                :date-one="dateOne"
+                :date-two="dateTwo"
+                @date-one-selected="val => { dateOne = val }"
+                @date-two-selected="val => { dateTwo = val }"
+              />
               </v-flex>
               <v-flex xs12>
                 <v-textarea
@@ -430,7 +459,9 @@ export default {
       email: '',
       phone: '',
       slug: this.$route.params.id,
-      resort: {},
+      resort: {
+        images: []
+      },
       bookDialog: false,
       // images
       FrontendImg,
@@ -494,7 +525,6 @@ export default {
    created() {
     this.$http.get('https://stagingapi.whynot.earth/api/v0/pages/slug/vkirirom/'+this.slug).then(function(data){
       this.resort=data.body;
-      console.log(this.image1)
     });
   },
   computed: {
