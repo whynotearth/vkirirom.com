@@ -251,14 +251,13 @@
               </v-flex>
               <v-flex xs12>
                 <p>Select Dates</p>
-              <v-btn dark color="cyan darken-4" id="datepicker" block>
-                <input
+                <v-text-field
                 type="text"
                 id="datepicker"
                 placeholder="Select dates"
                 :value="formatDates(dateOne, dateTwo)"
-                >
-              </v-btn>
+                
+                ></v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker'"
                 :mode="'range'"
@@ -267,6 +266,8 @@
                 :date-two="dateTwo"
                 @date-one-selected="val => { dateOne = val }"
                 @date-two-selected="val => { dateTwo = val }"
+                offsetY="5"
+                offsetX="-50"
               />
               </v-flex>
               <v-flex xs12>
@@ -377,6 +378,7 @@
                 :value="formatDates(dateOne, dateTwo)"
                 >
               </v-btn>
+              <v-text-field :value="formatDates(dateOne, dateTwo)" hidden></v-text-field>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
