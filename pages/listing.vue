@@ -371,16 +371,17 @@
                 :rules="dateRules"
                 :value="formatDates(dateOne, dateTwo)"
                 ></v-text-field>
-                </v-flex>
               <AirbnbStyleDatepicker
                 :trigger-element-id="'datepicker-trigger'"
                 :mode="'range'"
+                style="width:100%; height:100%;"
                 :fullscreen-mobile="true"
                 :date-one="dateOne"
                 :date-two="dateTwo"
                 @date-one-selected="val => { dateOne = val }"
                 @date-two-selected="val => { dateTwo = val }"
               />
+              </v-flex>
               <v-flex xs12>
                 <v-textarea
                   solo
@@ -397,8 +398,6 @@
               dark
               class="text-capitalize font-weight-bold form-button"
               type="submit"
-              @click="validate"
-              :disabled="valid"
               :ripple="false"
             >
               Book
