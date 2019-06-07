@@ -196,7 +196,7 @@
         </v-flex>
         <v-flex md4 class="hidden-sm-and-down">
           <v-card class="pa-4 mt-5 ml-2 bookForm">
-            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" lazy-validation action="/thankYou">
+            <v-form name="bookForm" method="post" netlify ref="form" v-model="valid" lazy-validation action="/thankYou">
            <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
@@ -313,7 +313,7 @@
             </v-btn>
           </template>
           <v-card class="pa-4 bookForm" width="100%" height="100%">
-            <v-form name="bookForm" action="" method="post" netlify ref="form" v-model="valid" action="/thankYou">
+            <v-form name="bookForm"  method="post" netlify ref="form" v-model="valid" action="/thankYou">
            <input type="hidden" name="form-name" value="bookForm" />
               <v-layout row wrap>
               <v-flex xs12>
