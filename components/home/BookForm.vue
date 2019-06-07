@@ -132,6 +132,7 @@
         </v-menu>
       </v-flex>
       <v-flex xs12 class="text-xs-right mt-3">
+      <nuxt-link to="/searchPage">
         <v-btn
           color="cyan darken-4"
           :ripple="false"
@@ -140,6 +141,7 @@
         >
           Search
         </v-btn>
+      </nuxt-link>
         <v-btn
           color="cyan darken-4"
           :ripple="false"
