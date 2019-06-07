@@ -24,7 +24,7 @@ export default {
     IntroCard,
   },
 data: () =>  ({
-  posts: [
+    posts: [
       {
         category: 'Accommodation',
         image:
@@ -36,13 +36,13 @@ data: () =>  ({
         refName: 'accommodation',
       },
     ],
-  places: [
+    places: [
       {
         category: 'Accommodation',
         title: 'Bungalow',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801041/Bungalow_1_ledef7.jpg',
-        price: '80',
+        price: '113',
         href: '#',
         per: 'night',
         slug: 'Bungalow'
@@ -52,7 +52,7 @@ data: () =>  ({
         title: 'Luxury Tent',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801013/Luxury_Tent_1_e755jg.jpg',
-        price: '80',
+        price: '68',
         href: '#',
         per: 'night',
         slug: 'Luxury-Tent'
@@ -72,7 +72,7 @@ data: () =>  ({
         title: 'Camping',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559801033/Camping_1_mqqhyf.jpg',
-        price: '30',
+        price: '20',
         href: '#',
         per: 'night',
         slug: 'Camping'
@@ -82,7 +82,7 @@ data: () =>  ({
         title: 'Pipe Room',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800987/Pipe_Room_1_lheut2.jpg',
-        price: '30',
+        price: '50',
         href: '#',
         per: 'night',
         slug: 'Pipe-Room'
@@ -92,7 +92,7 @@ data: () =>  ({
         title: 'Villa Suite',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800960/Villa_Suite_1_tsmo2b.jpg',
-        price: '50',
+        price: '241',
         href: '#',
         per: 'night',
         slug: 'Villa-Suite'
@@ -102,13 +102,13 @@ data: () =>  ({
         title: 'Villa Jasmine',
         image:
           'https://res.cloudinary.com/die9ji2vn/image/upload/v1559800971/Villa_Jasmine_1_tqe47i.jpg',
-        price: '30',
+        price: '113',
         href: '#',
         per: 'night',
         slug: 'Villa-Jasmine'
-      }
+      },
     ],
-  })
+  }),
 }
 </script>
 
